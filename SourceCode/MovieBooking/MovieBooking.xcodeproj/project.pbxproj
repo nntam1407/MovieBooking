@@ -68,7 +68,6 @@
 		C63A74891F2BF2E7007B5568 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74241F2BF2E7007B5568 /* FileUtils.swift */; };
 		C63A748A1F2BF2E7007B5568 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74251F2BF2E7007B5568 /* Utils.swift */; };
 		C63A748B1F2BF2E7007B5568 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74291F2BF2E7007B5568 /* CountryData.swift */; };
-		C63A748C1F2BF2E7007B5568 /* CountryImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63A742A1F2BF2E7007B5568 /* CountryImages.xcassets */; };
 		C63A748D1F2BF2E7007B5568 /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A742B1F2BF2E7007B5568 /* CountryManager.swift */; };
 		C63A748E1F2BF2E7007B5568 /* PhoneCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = C63A742C1F2BF2E7007B5568 /* PhoneCode.plist */; };
 		C63A748F1F2BF2E7007B5568 /* LocationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A742E1F2BF2E7007B5568 /* LocationServices.swift */; };
@@ -180,7 +179,6 @@
 		C63A74251F2BF2E7007B5568 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C63A74261F2BF2E7007B5568 /* Objc-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Objc-Bridging-Header.h"; sourceTree = "<group>"; };
 		C63A74291F2BF2E7007B5568 /* CountryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
-		C63A742A1F2BF2E7007B5568 /* CountryImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CountryImages.xcassets; sourceTree = "<group>"; };
 		C63A742B1F2BF2E7007B5568 /* CountryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
 		C63A742C1F2BF2E7007B5568 /* PhoneCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhoneCode.plist; sourceTree = "<group>"; };
 		C63A742E1F2BF2E7007B5568 /* LocationServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServices.swift; sourceTree = "<group>"; };
@@ -531,7 +529,6 @@
 			isa = PBXGroup;
 			children = (
 				C63A74291F2BF2E7007B5568 /* CountryData.swift */,
-				C63A742A1F2BF2E7007B5568 /* CountryImages.xcassets */,
 				C63A742B1F2BF2E7007B5568 /* CountryManager.swift */,
 				C63A742C1F2BF2E7007B5568 /* PhoneCode.plist */,
 			);
@@ -721,7 +718,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C63A738B1F2BF0EC007B5568 /* LaunchScreen.storyboard in Resources */,
-				C63A748C1F2BF2E7007B5568 /* CountryImages.xcassets in Resources */,
 				C63A74931F2BF2E7007B5568 /* PhotoViewerView.xib in Resources */,
 				C63A74951F2BF2E7007B5568 /* VideoPlayerView.xib in Resources */,
 				C63A73881F2BF0EC007B5568 /* Assets.xcassets in Resources */,
