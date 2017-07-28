@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A235d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="X22-BO-wDR" customClass="PhotoViewerView" customModule="AskApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8l-tz-vSt" customClass="ImageScrollView" customModule="AskApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </scrollView>
+                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hS-wP-t2T" customClass="CircleLoadingView" customModule="AskApp" customModuleProvider="target">
+                    <rect key="frame" x="140" y="264" width="40" height="40"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="DpP-lx-3Y1"/>
+                        <constraint firstAttribute="width" constant="40" id="sg5-jc-kjE"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBY-tw-pI5">
+                    <rect key="frame" x="244" y="20" width="56" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="Dby-Xh-cXI"/>
+                        <constraint firstAttribute="height" constant="30" id="mfw-0b-HTC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didTouchDoneButton:" destination="X22-BO-wDR" eventType="touchUpInside" id="lzT-nq-GKA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="t8l-tz-vSt" secondAttribute="trailing" id="1xL-pc-Kqp"/>
+                <constraint firstItem="t8l-tz-vSt" firstAttribute="top" secondItem="X22-BO-wDR" secondAttribute="top" id="IAj-rr-eYr"/>
+                <constraint firstItem="t8l-tz-vSt" firstAttribute="leading" secondItem="X22-BO-wDR" secondAttribute="leading" id="SCk-Ys-yEP"/>
+                <constraint firstItem="dBY-tw-pI5" firstAttribute="top" secondItem="X22-BO-wDR" secondAttribute="top" constant="20" id="U51-ap-jBg"/>
+                <constraint firstItem="3hS-wP-t2T" firstAttribute="leading" secondItem="X22-BO-wDR" secondAttribute="leading" constant="140" id="a8A-t5-Kyf"/>
+                <constraint firstItem="3hS-wP-t2T" firstAttribute="top" secondItem="X22-BO-wDR" secondAttribute="top" constant="264" id="b4E-g6-wlI"/>
+                <constraint firstItem="3hS-wP-t2T" firstAttribute="centerY" secondItem="t8l-tz-vSt" secondAttribute="centerY" id="bpQ-Xc-LzP"/>
+                <constraint firstAttribute="bottom" secondItem="t8l-tz-vSt" secondAttribute="bottom" id="f39-ew-4vx"/>
+                <constraint firstItem="3hS-wP-t2T" firstAttribute="centerX" secondItem="t8l-tz-vSt" secondAttribute="centerX" id="xQB-D9-foR"/>
+                <constraint firstAttribute="trailing" secondItem="dBY-tw-pI5" secondAttribute="trailing" constant="20" id="yDW-PW-OAn"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="a8A-t5-Kyf"/>
+                    <exclude reference="b4E-g6-wlI"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="circleLoadingView" destination="3hS-wP-t2T" id="uWR-dZ-FrG"/>
+                <outlet property="doneButton" destination="dBY-tw-pI5" id="bTS-yN-M3b"/>
+                <outlet property="imageScrollView" destination="t8l-tz-vSt" id="c35-rd-fPB"/>
+            </connections>
+            <point key="canvasLocation" x="297" y="330"/>
+        </view>
+    </objects>
+</document>
