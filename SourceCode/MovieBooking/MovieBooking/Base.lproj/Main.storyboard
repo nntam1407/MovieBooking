@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Root Tabbar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -59,7 +64,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xcp-DQ-jgI"/>
+                    <navigationItem key="navigationItem" id="Xcp-DQ-jgI">
+                        <barButtonItem key="backBarButtonItem" title=" " id="mh8-n4-M8Q"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iez-WQ-BFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,16 +76,134 @@
         <scene sceneID="zHv-43-zst">
             <objects>
                 <tableViewController storyboardIdentifier="SettingTableViewController" id="dZJ-76-6ey" customClass="SettingTableViewController" customModule="MovieBooking" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mv5-3B-rPe">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="mv5-3B-rPe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="tJk-Rm-KSs">
+                            <rect key="frame" x="0.0" y="185" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9Q-Xf-Cx0">
+                                    <rect key="frame" x="149" y="0.0" width="78" height="16"/>
+                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="O9Q-Xf-Cx0" firstAttribute="top" secondItem="tJk-Rm-KSs" secondAttribute="top" id="2Ji-Cr-93x"/>
+                                <constraint firstItem="O9Q-Xf-Cx0" firstAttribute="centerX" secondItem="tJk-Rm-KSs" secondAttribute="centerX" id="jV3-8v-6JX"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="o8g-A1-rPZ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="dHo-sr-QeC">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dHo-sr-QeC" id="ymr-og-oJf">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_setting_rate_us" translatesAutoresizingMaskIntoConstraints="NO" id="95R-Tr-ZMg">
+                                                    <rect key="frame" x="15" y="10" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="4Hf-qk-uBr"/>
+                                                        <constraint firstAttribute="height" constant="24" id="wAp-Dg-F29"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Us on AppStore" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nno-1b-bQP">
+                                                    <rect key="frame" x="50" y="13" width="142.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Nno-1b-bQP" firstAttribute="leading" secondItem="ymr-og-oJf" secondAttribute="leading" constant="50" id="E2Z-w4-KMW"/>
+                                                <constraint firstItem="95R-Tr-ZMg" firstAttribute="centerY" secondItem="ymr-og-oJf" secondAttribute="centerY" id="OSL-Vn-Ugb"/>
+                                                <constraint firstItem="95R-Tr-ZMg" firstAttribute="leading" secondItem="ymr-og-oJf" secondAttribute="leading" constant="15" id="ZoP-S3-Mo7"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Nno-1b-bQP" secondAttribute="trailing" constant="20" symbolic="YES" id="oqY-eJ-TaM"/>
+                                                <constraint firstItem="Nno-1b-bQP" firstAttribute="centerY" secondItem="ymr-og-oJf" secondAttribute="centerY" id="uSy-Gl-LhV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ra7-J8-gs0">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ra7-J8-gs0" id="x8v-uG-s8c">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_setting_share_with_friends" translatesAutoresizingMaskIntoConstraints="NO" id="A11-OL-BsH">
+                                                    <rect key="frame" x="15" y="10" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="Kvh-XJ-mdn"/>
+                                                        <constraint firstAttribute="height" constant="24" id="kRz-GL-7Gu"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share with Friends" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neY-J9-oUx">
+                                                    <rect key="frame" x="50" y="13" width="125" height="18"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="neY-J9-oUx" secondAttribute="trailing" constant="20" symbolic="YES" id="KYh-Jl-eDw"/>
+                                                <constraint firstItem="A11-OL-BsH" firstAttribute="centerY" secondItem="x8v-uG-s8c" secondAttribute="centerY" id="ZqA-qT-lnA"/>
+                                                <constraint firstItem="A11-OL-BsH" firstAttribute="leading" secondItem="x8v-uG-s8c" secondAttribute="leading" constant="15" id="e2H-SB-lj4"/>
+                                                <constraint firstItem="neY-J9-oUx" firstAttribute="leading" secondItem="x8v-uG-s8c" secondAttribute="leading" constant="50" id="l8s-tC-lKj"/>
+                                                <constraint firstItem="neY-J9-oUx" firstAttribute="centerY" secondItem="x8v-uG-s8c" secondAttribute="centerY" id="x2a-Ei-Zke"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="SIb-uq-Nwd">
+                                        <rect key="frame" x="0.0" y="123" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SIb-uq-Nwd" id="tBx-ss-JhS">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_setting_send_feedback" translatesAutoresizingMaskIntoConstraints="NO" id="x2B-y9-3fG">
+                                                    <rect key="frame" x="15" y="10" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="I3y-6l-0IH"/>
+                                                        <constraint firstAttribute="width" constant="24" id="M58-7p-7wx"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send a Feedback" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i2-VQ-OuI">
+                                                    <rect key="frame" x="50" y="13" width="118" height="18"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="x2B-y9-3fG" firstAttribute="centerY" secondItem="tBx-ss-JhS" secondAttribute="centerY" id="Dgl-p5-Fnb"/>
+                                                <constraint firstItem="x2B-y9-3fG" firstAttribute="leading" secondItem="tBx-ss-JhS" secondAttribute="leading" constant="15" id="TBb-98-ZVG"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1i2-VQ-OuI" secondAttribute="trailing" constant="20" symbolic="YES" id="XOj-JX-pEk"/>
+                                                <constraint firstItem="1i2-VQ-OuI" firstAttribute="centerY" secondItem="tBx-ss-JhS" secondAttribute="centerY" id="pO5-L8-WpF"/>
+                                                <constraint firstItem="1i2-VQ-OuI" firstAttribute="leading" secondItem="tBx-ss-JhS" secondAttribute="leading" constant="50" id="wEg-XU-rWb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="dZJ-76-6ey" id="lHd-j8-DfL"/>
                             <outlet property="delegate" destination="dZJ-76-6ey" id="6w1-7B-NTP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="IXw-1z-or6"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="IXw-1z-or6">
+                        <barButtonItem key="backBarButtonItem" title=" " id="EcA-r4-8Lf"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="appVersionLabel" destination="O9Q-Xf-Cx0" id="O5j-0y-pli"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etE-VE-0mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,5 +232,8 @@
     <resources>
         <image name="ic_tabbar_more" width="25" height="5"/>
         <image name="ic_tabbar_movies" width="25" height="23"/>
+        <image name="ico_setting_rate_us" width="24" height="24"/>
+        <image name="ico_setting_send_feedback" width="24" height="24"/>
+        <image name="ico_setting_share_with_friends" width="24" height="24"/>
     </resources>
 </document>

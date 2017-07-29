@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import MessageUI
 
-class SettingTableViewController: BaseTableViewController {
+class SettingTableViewController: BaseTableViewController, MFMailComposeViewControllerDelegate {
+    
+    @IBOutlet weak var appVersionLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,9 @@ class SettingTableViewController: BaseTableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.title = NSLocalizedString("More", comment: "")
+        
+        // App version
+        self.appVersionLabel.text = "Version: " + Utils.fullAppVersion()
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,4 +100,69 @@ class SettingTableViewController: BaseTableViewController {
     }
     */
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section == 0 {
+            
+            if indexPath.row == 0 {
+                
+                let appStoreURL = URL(string: kAppStoreURL)
+                UIApplication.shared.openURL(appStoreURL!)
+                
+            } else if indexPath.row == 1 {
+                // Share with friends
+                let ituneURL = URL(string: kAppStoreURL)
+                let activityVC = UIActivityViewController(activityItems: [ituneURL!], applicationActivities: nil)
+                
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    let cell = tableView.cellForRow(at: indexPath)
+                    
+                    let popOver = UIPopoverController(contentViewController: activityVC)
+                    popOver.present(from: CGRect(x: cell!.frame.size.width / 2.0, y: cell!.frame.height / 2.0, width: 0, height: 0), in: tableView, permittedArrowDirections: .any, animated: true)
+                } else {
+                    self.present(activityVC, animated: true, completion: nil)
+                }
+                
+            } else if (indexPath.row == 2) {
+                // Send feedback
+                if MFMailComposeViewController.canSendMail() {
+                    // Open mail comporse
+                    let mailVC = MFMailComposeViewController()
+                    mailVC.setToRecipients([kAppSupportEmail])
+                    mailVC.setSubject(String(format: NSLocalizedString("%@ App Feedback", comment: ""), kAppName))
+                    mailVC.mailComposeDelegate = self
+                    
+                    self.present(mailVC, animated: true, completion: nil)
+                } else {
+                    AlertUtils.showAlert(title: NSLocalizedString("Could Not Send Email", comment: ""), message: NSLocalizedString("Your device could not send e-mail.\nPlease check e-mail configuration and try again.", comment: ""), okButtonTitle: NSLocalizedString("OK", comment: ""), onViewController: self)
+                }
+            }
+        }
+    }
+    
+    // MARK:
+    // MARK: MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        if error != nil {
+            AlertUtils.showAlert(title: NSLocalizedString("Could Not Send Email", comment: ""), message: error?.localizedDescription, okButtonTitle: NSLocalizedString("OK", comment: ""), onViewController: controller, completed: {
+                controller.dismiss(animated: true, completion: nil)
+            })
+            
+            return
+        } else {
+            if result == .sent {
+                AlertUtils.showAlert(title: NSLocalizedString("Sent Email Successful", comment: ""), message: String(format: NSLocalizedString("Thanks for your feedback. We will make %@ be better.", comment: ""), kAppName), okButtonTitle:NSLocalizedString("OK", comment: ""), onViewController: controller, completed: {
+                    controller.dismiss(animated: true, completion: nil)
+                })
+                
+                return
+            }
+        }
+        
+        // Just dismiss this compose
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

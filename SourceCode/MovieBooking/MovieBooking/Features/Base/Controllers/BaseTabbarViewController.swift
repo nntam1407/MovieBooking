@@ -8,12 +8,19 @@
 
 import UIKit
 
-class BaseTabbarViewController: UITabBarController {
+enum TabbarIndexEnum: Int {
+    case movies = 0
+    case more = 1
+}
+
+class BaseTabbarViewController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +38,16 @@ class BaseTabbarViewController: UITabBarController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK:
+    // MARK: UITabBarControllerDelegate
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if self.selectedIndex == TabbarIndexEnum.more.rawValue {
+            self.tabBar.barStyle = .default
+        } else {
+            self.tabBar.barStyle = .black
+        }
+    }
 
 }
