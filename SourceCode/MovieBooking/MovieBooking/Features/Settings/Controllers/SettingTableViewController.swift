@@ -19,7 +19,7 @@ class SettingTableViewController: BaseTableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.title = NSLocalizedString("Settings", comment: "")
+        self.title = NSLocalizedString("More", comment: "")
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Root Tabbar View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="RootTabbarViewController" customModule="MovieBooking" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -28,11 +28,11 @@
             </objects>
             <point key="canvasLocation" x="-278" y="16"/>
         </scene>
-        <!--Item-->
+        <!--Movies-->
         <scene sceneID="DP5-qT-fhc">
             <objects>
                 <navigationController id="3RE-x8-qg4" customClass="BaseNavigationViewController" customModule="MovieBooking" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cgq-ky-lRd"/>
+                    <tabBarItem key="tabBarItem" title="Movies" image="ic_tabbar_movies" id="cgq-ky-lRd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="3V4-DV-Kmd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -57,7 +57,7 @@
                     <view key="view" contentMode="scaleToFill" id="3cZ-0d-3GB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xcp-DQ-jgI"/>
                 </viewController>
@@ -73,16 +73,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="y31-7S-O0T">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y31-7S-O0T" id="UQg-y5-FZW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="dZJ-76-6ey" id="lHd-j8-DfL"/>
                             <outlet property="delegate" destination="dZJ-76-6ey" id="6w1-7B-NTP"/>
@@ -94,13 +84,14 @@
             </objects>
             <point key="canvasLocation" x="1775" y="680"/>
         </scene>
-        <!--Item-->
+        <!--More-->
         <scene sceneID="rzt-Bc-iiu">
             <objects>
                 <navigationController id="0IW-Tx-wzg" customClass="BaseNavigationViewController" customModule="MovieBooking" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="zeP-yZ-hgg"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Beg-R3-G5g">
+                    <tabBarItem key="tabBarItem" title="More" image="ic_tabbar_more" id="zeP-yZ-hgg"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Beg-R3-G5g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -113,4 +104,8 @@
             <point key="canvasLocation" x="823" y="680"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_tabbar_more" width="25" height="5"/>
+        <image name="ic_tabbar_movies" width="25" height="23"/>
+    </resources>
 </document>
