@@ -15,6 +15,8 @@
 		C60C70F41F2C4C03003D7FBC /* GenresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70F31F2C4C03003D7FBC /* GenresModel.swift */; };
 		C60C70F61F2C5569003D7FBC /* WebServices+Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70F51F2C5569003D7FBC /* WebServices+Movies.swift */; };
 		C60C70F81F2C5D45003D7FBC /* WebServices+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70F71F2C5D45003D7FBC /* WebServices+Images.swift */; };
+		C60C70FD1F2C74C2003D7FBC /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70FC1F2C74C2003D7FBC /* MoviesViewController.swift */; };
+		C60C70FF1F2C74EB003D7FBC /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70FE1F2C74EB003D7FBC /* SettingTableViewController.swift */; };
 		C63A737F1F2BF0EC007B5568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A737E1F2BF0EC007B5568 /* AppDelegate.swift */; };
 		C63A73861F2BF0EC007B5568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C63A73841F2BF0EC007B5568 /* Main.storyboard */; };
 		C63A73881F2BF0EC007B5568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63A73871F2BF0EC007B5568 /* Assets.xcassets */; };
@@ -124,6 +126,8 @@
 		C60C70F31F2C4C03003D7FBC /* GenresModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenresModel.swift; sourceTree = "<group>"; };
 		C60C70F51F2C5569003D7FBC /* WebServices+Movies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebServices+Movies.swift"; sourceTree = "<group>"; };
 		C60C70F71F2C5D45003D7FBC /* WebServices+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebServices+Images.swift"; sourceTree = "<group>"; };
+		C60C70FC1F2C74C2003D7FBC /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		C60C70FE1F2C74EB003D7FBC /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		C63A737B1F2BF0EC007B5568 /* MovieBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63A737E1F2BF0EC007B5568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C63A73851F2BF0EC007B5568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -251,6 +255,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C60C70F91F2C74AC003D7FBC /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				C60C70FA1F2C74AC003D7FBC /* Controllers */,
+				C60C70FB1F2C74AC003D7FBC /* Views */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		C60C70FA1F2C74AC003D7FBC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C60C70FC1F2C74C2003D7FBC /* MoviesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C60C70FB1F2C74AC003D7FBC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C63A73721F2BF0EC007B5568 = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +353,7 @@
 		C63A73C71F2BF2E7007B5568 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C60C70F91F2C74AC003D7FBC /* Movies */,
 				C63A73DE1F2BF2E7007B5568 /* Settings */,
 				C63A73C81F2BF2E7007B5568 /* Base */,
 				C63A73DA1F2BF2E7007B5568 /* Root */,
@@ -407,6 +436,7 @@
 		C63A73DF1F2BF2E7007B5568 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C60C70FE1F2C74EB003D7FBC /* SettingTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -468,9 +498,9 @@
 		C63A73FF1F2BF2E7007B5568 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				C63A74021F2BF2E7007B5568 /* BottomSheet */,
 				C63A74001F2BF2E7007B5568 /* AhaUtilityTextField.swift */,
 				C63A74011F2BF2E7007B5568 /* BlurView.swift */,
-				C63A74021F2BF2E7007B5568 /* BottomSheet */,
 				C63A74081F2BF2E7007B5568 /* CircleLoadingView.swift */,
 				C63A74091F2BF2E7007B5568 /* HightlightButton.swift */,
 				C63A740A1F2BF2E7007B5568 /* ImageScrollView.swift */,
@@ -910,6 +940,7 @@
 				C60C70F21F2C4B87003D7FBC /* SpokenLanguageModel.swift in Sources */,
 				C63A74701F2BF2E7007B5568 /* HightlightButton.swift in Sources */,
 				C63A744E1F2BF2E7007B5568 /* BaseCustomView.swift in Sources */,
+				C60C70FF1F2C74EB003D7FBC /* SettingTableViewController.swift in Sources */,
 				C60C70F41F2C4C03003D7FBC /* GenresModel.swift in Sources */,
 				C63A74861F2BF2E7007B5568 /* UITableViewExtension.swift in Sources */,
 				C63A74761F2BF2E7007B5568 /* MaterialRefreshControl.swift in Sources */,
@@ -965,6 +996,7 @@
 				C63A749D1F2BF2E7007B5568 /* UploadRequestItem.swift in Sources */,
 				C63A74491F2BF2E7007B5568 /* NotificationBarView.swift in Sources */,
 				C63A74721F2BF2E7007B5568 /* LoadingPopupView.swift in Sources */,
+				C60C70FD1F2C74C2003D7FBC /* MoviesViewController.swift in Sources */,
 				C63A74561F2BF2E7007B5568 /* moviebooking.xcdatamodeld in Sources */,
 				C63A74711F2BF2E7007B5568 /* ImageScrollView.swift in Sources */,
 				C63A747F1F2BF2E7007B5568 /* NSNumberExtension.swift in Sources */,
