@@ -74,20 +74,45 @@
                                     <outlet property="delegate" destination="8Z7-zV-GHZ" id="t04-Jg-61j"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rV4-82-57u" userLabel="View - Loading" customClass="MaterialIndicatorView" customModule="MovieBooking" customModuleProvider="target">
+                                <rect key="frame" x="175" y="321" width="24" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="JoF-Uo-v38"/>
+                                    <constraint firstAttribute="height" constant="24" id="oaC-L6-S6Z"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenStop" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No movies" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljO-Te-WkB">
+                                <rect key="frame" x="20" y="323" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="ljO-Te-WkB" firstAttribute="centerY" secondItem="zVf-jo-6B6" secondAttribute="centerY" id="0c5-YH-CnH"/>
                             <constraint firstAttribute="trailing" secondItem="zVf-jo-6B6" secondAttribute="trailing" id="4a9-vx-Rtq"/>
+                            <constraint firstItem="rV4-82-57u" firstAttribute="centerX" secondItem="zVf-jo-6B6" secondAttribute="centerX" id="Cpz-aC-23Y"/>
+                            <constraint firstItem="ljO-Te-WkB" firstAttribute="centerX" secondItem="zVf-jo-6B6" secondAttribute="centerX" id="JcZ-Kr-aF3"/>
+                            <constraint firstItem="ljO-Te-WkB" firstAttribute="leading" secondItem="3cZ-0d-3GB" secondAttribute="leading" constant="20" id="KsC-si-t9z"/>
+                            <constraint firstAttribute="trailing" secondItem="ljO-Te-WkB" secondAttribute="trailing" constant="20" id="PgS-bb-v7e"/>
                             <constraint firstItem="1vW-BG-thy" firstAttribute="top" secondItem="zVf-jo-6B6" secondAttribute="bottom" constant="-49" id="SkN-f5-aGm"/>
                             <constraint firstItem="zVf-jo-6B6" firstAttribute="leading" secondItem="3cZ-0d-3GB" secondAttribute="leading" id="YWM-ak-6ax"/>
                             <constraint firstItem="zVf-jo-6B6" firstAttribute="top" secondItem="xJ7-mH-gIh" secondAttribute="bottom" constant="-64" id="Zk7-ao-GG5"/>
+                            <constraint firstItem="rV4-82-57u" firstAttribute="centerY" secondItem="zVf-jo-6B6" secondAttribute="centerY" id="xxx-fL-YaV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xcp-DQ-jgI">
                         <barButtonItem key="backBarButtonItem" title=" " id="mh8-n4-M8Q"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="loadingIndicatorView" destination="rV4-82-57u" id="f12-U1-lA4"/>
                         <outlet property="mainTableView" destination="zVf-jo-6B6" id="wob-bg-s1L"/>
+                        <outlet property="noDataLabel" destination="ljO-Te-WkB" id="UrW-XF-4HA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iez-WQ-BFg" userLabel="First Responder" sceneMemberID="firstResponder"/>

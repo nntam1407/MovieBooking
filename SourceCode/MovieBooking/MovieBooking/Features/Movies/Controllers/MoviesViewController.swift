@@ -11,6 +11,8 @@ import UIKit
 class MoviesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var loadingIndicatorView: MaterialIndicatorView!
+    @IBOutlet weak var noDataLabel: UILabel!
     
     // For pull refresh and load more data
     var refreshControl: MaterialRefreshControl?
@@ -106,6 +108,12 @@ class MoviesViewController: BaseViewController, UITableViewDelegate, UITableView
             self.pageIndex = 1
         }
         
+        if self.movies.count == 0 && !self.refreshControl!.isRefreshing {
+            self.loadingIndicatorView.startAnimating()
+        }
+        
+        self.noDataLabel.isHidden = true
+        
         // Start fetch data from API
         self.isLoadingData = true
         
@@ -129,6 +137,12 @@ class MoviesViewController: BaseViewController, UITableViewDelegate, UITableView
                                                         strongSelf.appendMovieDataAndUpdateTableView(appendingMovies: movies)
                                                     }
                                                     
+                                                    if strongSelf.movies.count == 0 {
+                                                        strongSelf.noDataLabel.isHidden = false
+                                                        strongSelf.noDataLabel.text = NSLocalizedString("No movies", comment: "")
+                                                    }
+                                                    
+                                                    strongSelf.loadingIndicatorView.stopAnimating()
                                                     strongSelf.isLoadingData = false
                                                     strongSelf.refreshControl?.endRefreshing()
                                                     strongSelf.loadmoreControl?.endInfiniteLoading()
@@ -151,9 +165,11 @@ class MoviesViewController: BaseViewController, UITableViewDelegate, UITableView
                                      onViewController: strongSelf)
             } else {
                 // Show error and and try again button on main screen
-                
+                strongSelf.noDataLabel.isHidden = false
+                strongSelf.noDataLabel.text = error.localizedDescription
             }
             
+            strongSelf.loadingIndicatorView.stopAnimating()
             strongSelf.isLoadingData = false
             strongSelf.refreshControl?.endRefreshing()
             strongSelf.loadmoreControl?.endInfiniteLoading()

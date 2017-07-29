@@ -87,6 +87,7 @@ class NetworkServices: NSObject, URLSessionDataDelegate, URLSessionDownloadDeleg
         let restAPISessionCofigs = URLSessionConfiguration.default
         
         restAPISessionCofigs.httpMaximumConnectionsPerHost = kMaxRestAPIRequestCount
+        restAPISessionCofigs.requestCachePolicy = .reloadIgnoringCacheData
         restAPISessionCofigs.allowsCellularAccess = true
         restAPISessionCofigs.timeoutIntervalForRequest = TimeInterval(kRestAPIRequestTimeout)
         restAPISessionCofigs.timeoutIntervalForResource = TimeInterval(kRestAPIRequestTimeout)
