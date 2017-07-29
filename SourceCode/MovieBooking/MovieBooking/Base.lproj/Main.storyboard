@@ -145,6 +145,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <color key="backgroundColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.078431372549019607" alpha="1" colorSpace="deviceRGB"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAi-ES-Xdp" customClass="HightlightButton" customModule="MovieBooking" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                            <connections>
+                                                <action selector="didTouchOnBackdropImageButton:" destination="Wlh-b3-i0z" eventType="touchUpInside" id="xy2-Ix-BbK"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.078431372549019607" alpha="1" colorSpace="deviceRGB"/>
                                     <constraints>
@@ -152,6 +158,10 @@
                                         <constraint firstAttribute="trailing" secondItem="QmE-vQ-pOz" secondAttribute="trailing" id="LBr-nP-Uvx"/>
                                         <constraint firstAttribute="bottom" secondItem="QmE-vQ-pOz" secondAttribute="bottom" id="WgG-cy-y7L"/>
                                         <constraint firstItem="QmE-vQ-pOz" firstAttribute="top" secondItem="cAz-Nx-DzL" secondAttribute="top" id="cdd-ZJ-oRT"/>
+                                        <constraint firstItem="XAi-ES-Xdp" firstAttribute="leading" secondItem="cAz-Nx-DzL" secondAttribute="leading" id="dqS-sX-dYb"/>
+                                        <constraint firstAttribute="bottom" secondItem="XAi-ES-Xdp" secondAttribute="bottom" id="e3r-ve-QNq"/>
+                                        <constraint firstAttribute="trailing" secondItem="XAi-ES-Xdp" secondAttribute="trailing" id="fzI-ez-Ai2"/>
+                                        <constraint firstItem="XAi-ES-Xdp" firstAttribute="top" secondItem="cAz-Nx-DzL" secondAttribute="top" id="zbX-rn-ikl"/>
                                     </constraints>
                                 </view>
                                 <connections>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class MoviesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, MovieItemTableViewCellDelegates {
 
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var loadingIndicatorView: MaterialIndicatorView!
@@ -225,6 +225,7 @@ class MoviesViewController: BaseViewController, UITableViewDelegate, UITableView
         
         let movieData = self.movies[indexPath.row]
         cell.movieData = movieData
+        cell.delegate = self
         
         return cell
     }
@@ -235,5 +236,14 @@ class MoviesViewController: BaseViewController, UITableViewDelegate, UITableView
         // Move to movie detail
         let movieData = self.movies[indexPath.row]
         self.performSegue(withIdentifier: "MovieDetailViewController", sender: movieData)
+    }
+    
+    // MARK:
+    // MARK: MovieItemTableViewCellDelegates
+    
+    func movieItemCellDidTouchOnPosterImage(sender: MovieItemTableViewCell) {
+        if let posterImageURL = WebServices.posterImageURL(imagePath: sender.movieData?.posterPath) {
+            MediaPlayerManager.sharedInstance.displayImageFromURL(posterImageURL)
+        }
     }
 }

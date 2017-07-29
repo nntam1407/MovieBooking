@@ -12,6 +12,7 @@ let kMovieDetailSectionHeaderHeight: CGFloat = 150.0
 
 @objc protocol MovieDetailSectionHeaderViewDelegates {
     @objc optional func movieDetailSectionHeaderDidTouchOnBuyButton(sender: MovieDetailSectionHeaderView)
+    @objc optional func movieDetailSectionHeaderDidTouchOnPosterImage(sender: MovieDetailSectionHeaderView)
 }
 
 class MovieDetailSectionHeaderView: UIView {
@@ -48,6 +49,10 @@ class MovieDetailSectionHeaderView: UIView {
     // MARK:
     // MARK: Events
 
+    @IBAction func didTouchOnPosterImageButton(_ sender: Any) {
+        self.delegate?.movieDetailSectionHeaderDidTouchOnPosterImage?(sender: self)
+    }
+    
     @IBAction func didTouchOnBookButton(_ sender: Any) {
         self.delegate?.movieDetailSectionHeaderDidTouchOnBuyButton?(sender: self)
     }

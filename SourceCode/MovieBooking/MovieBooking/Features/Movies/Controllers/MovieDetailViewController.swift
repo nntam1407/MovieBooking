@@ -70,6 +70,15 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
     }
     
     // MARK:
+    // MARK: View's events
+    
+    @IBAction func didTouchOnBackdropImageButton(_ sender: Any) {
+        if let backdropImageURL = WebServices.backdropImageURL(imagePath: self.movieData?.backdropPath) {
+            MediaPlayerManager.sharedInstance.displayImageFromURL(backdropImageURL)
+        }
+    }
+    
+    // MARK:
     // MARK: Methods
     
     func displayMovieInformation() {
@@ -248,6 +257,12 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
             self.present(safariVC, animated: true, completion: nil)
         } else {
             // Display internal webView
+        }
+    }
+    
+    func movieDetailSectionHeaderDidTouchOnPosterImage(sender: MovieDetailSectionHeaderView) {
+        if let posterImageURL = WebServices.posterImageURL(imagePath: sender.movieData?.posterPath) {
+            MediaPlayerManager.sharedInstance.displayImageFromURL(posterImageURL)
         }
     }
 

@@ -10,12 +10,18 @@ import UIKit
 
 let kMovieItemTableCellHeight: CGFloat = 100.0
 
+@objc protocol MovieItemTableViewCellDelegates {
+    @objc optional func movieItemCellDidTouchOnPosterImage(sender: MovieItemTableViewCell)
+}
+
 class MovieItemTableViewCell: BaseCustomTableViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
+    
+    weak var delegate: MovieItemTableViewCellDelegates?
     
     var movieData: MovieModel? {
         didSet {
@@ -45,9 +51,7 @@ class MovieItemTableViewCell: BaseCustomTableViewCell {
     // MARK: Events
     
     @IBAction func didTouchOnAvatarButton(_ sender: Any) {
-        if let posterImageURL = WebServices.posterImageURL(imagePath: self.movieData?.posterPath) {
-            MediaPlayerManager.sharedInstance.displayImageFromURL(posterImageURL)
-        }
+        self.delegate?.movieItemCellDidTouchOnPosterImage?(sender: self)
     }
     
     // MARK:
