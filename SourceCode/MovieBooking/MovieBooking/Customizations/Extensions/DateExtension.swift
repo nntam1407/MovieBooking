@@ -162,7 +162,9 @@ extension Date {
         return components.day!
     }
     
-    // Class methods
+    // MARK:
+    // MARK: lass methods
+    
     static func dateFromDotNetTimeString(_ dateString: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -177,6 +179,16 @@ extension Date {
         
         return result
     }
+    
+    static func fromDateString(dateString: String, format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        
+        return dateFormatter.date(from: dateString)
+    }
+    
+    // MARK:
+    // MARK: Methods support to convert to string value
     
     func toDotNetTimeString() -> String {
         let dateFormatter = DateFormatter()

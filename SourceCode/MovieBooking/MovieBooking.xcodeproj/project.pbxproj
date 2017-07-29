@@ -10,6 +10,9 @@
 		06A069A6165511D13B1DB8F9 /* Pods_MovieBooking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BCE959C1F31A943231E2D4 /* Pods_MovieBooking.framework */; };
 		1F7A3AAD7E8A3240B7B6BE20 /* Pods_MovieBookingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7441D92F6AF2B060715EBAED /* Pods_MovieBookingTests.framework */; };
 		5342EA71C8A1260EA574478E /* Pods_MovieBookingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130910152F2600A9DBD1F7B1 /* Pods_MovieBookingUITests.framework */; };
+		C60C70F01F2C4777003D7FBC /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70EF1F2C4777003D7FBC /* MovieModel.swift */; };
+		C60C70F21F2C4B87003D7FBC /* SpokenLanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70F11F2C4B87003D7FBC /* SpokenLanguageModel.swift */; };
+		C60C70F41F2C4C03003D7FBC /* GenresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70F31F2C4C03003D7FBC /* GenresModel.swift */; };
 		C63A737F1F2BF0EC007B5568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A737E1F2BF0EC007B5568 /* AppDelegate.swift */; };
 		C63A73861F2BF0EC007B5568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C63A73841F2BF0EC007B5568 /* Main.storyboard */; };
 		C63A73881F2BF0EC007B5568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63A73871F2BF0EC007B5568 /* Assets.xcassets */; };
@@ -53,7 +56,7 @@
 		C63A747A1F2BF2E7007B5568 /* TextAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74131F2BF2E7007B5568 /* TextAvatarImageView.swift */; };
 		C63A747B1F2BF2E7007B5568 /* UtilityTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74141F2BF2E7007B5568 /* UtilityTextView.swift */; };
 		C63A747C1F2BF2E7007B5568 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74161F2BF2E7007B5568 /* ArrayExtension.swift */; };
-		C63A747D1F2BF2E7007B5568 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74171F2BF2E7007B5568 /* NSDateExtension.swift */; };
+		C63A747D1F2BF2E7007B5568 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74171F2BF2E7007B5568 /* DateExtension.swift */; };
 		C63A747E1F2BF2E7007B5568 /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74181F2BF2E7007B5568 /* NSDictionaryExtension.swift */; };
 		C63A747F1F2BF2E7007B5568 /* NSNumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A74191F2BF2E7007B5568 /* NSNumberExtension.swift */; };
 		C63A74801F2BF2E7007B5568 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A741A1F2BF2E7007B5568 /* NSObjectExtension.swift */; };
@@ -114,6 +117,9 @@
 		62FD4FEFCF379787D0769298 /* Pods-MovieBooking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBooking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieBooking/Pods-MovieBooking.debug.xcconfig"; sourceTree = "<group>"; };
 		7441D92F6AF2B060715EBAED /* Pods_MovieBookingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieBookingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F5A7121934D340D138A72B /* Pods-MovieBookingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBookingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieBookingTests/Pods-MovieBookingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C60C70EF1F2C4777003D7FBC /* MovieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		C60C70F11F2C4B87003D7FBC /* SpokenLanguageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpokenLanguageModel.swift; sourceTree = "<group>"; };
+		C60C70F31F2C4C03003D7FBC /* GenresModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenresModel.swift; sourceTree = "<group>"; };
 		C63A737B1F2BF0EC007B5568 /* MovieBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63A737E1F2BF0EC007B5568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C63A73851F2BF0EC007B5568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,7 +169,7 @@
 		C63A74131F2BF2E7007B5568 /* TextAvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAvatarImageView.swift; sourceTree = "<group>"; };
 		C63A74141F2BF2E7007B5568 /* UtilityTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityTextView.swift; sourceTree = "<group>"; };
 		C63A74161F2BF2E7007B5568 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
-		C63A74171F2BF2E7007B5568 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		C63A74171F2BF2E7007B5568 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		C63A74181F2BF2E7007B5568 /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
 		C63A74191F2BF2E7007B5568 /* NSNumberExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberExtension.swift; sourceTree = "<group>"; };
 		C63A741A1F2BF2E7007B5568 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
@@ -410,6 +416,9 @@
 			isa = PBXGroup;
 			children = (
 				C63A73E31F2BF2E7007B5568 /* BaseModel.swift */,
+				C60C70EF1F2C4777003D7FBC /* MovieModel.swift */,
+				C60C70F11F2C4B87003D7FBC /* SpokenLanguageModel.swift */,
+				C60C70F31F2C4C03003D7FBC /* GenresModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -489,7 +498,7 @@
 			isa = PBXGroup;
 			children = (
 				C63A74161F2BF2E7007B5568 /* ArrayExtension.swift */,
-				C63A74171F2BF2E7007B5568 /* NSDateExtension.swift */,
+				C63A74171F2BF2E7007B5568 /* DateExtension.swift */,
 				C63A74181F2BF2E7007B5568 /* NSDictionaryExtension.swift */,
 				C63A74191F2BF2E7007B5568 /* NSNumberExtension.swift */,
 				C63A741A1F2BF2E7007B5568 /* NSObjectExtension.swift */,
@@ -892,13 +901,15 @@
 				C63A74521F2BF2E7007B5568 /* BaseModel.swift in Sources */,
 				C63A74841F2BF2E7007B5568 /* UIImageExtension.swift in Sources */,
 				C63A746B1F2BF2E7007B5568 /* BottomSheetTableViewCell.swift in Sources */,
+				C60C70F21F2C4B87003D7FBC /* SpokenLanguageModel.swift in Sources */,
 				C63A74701F2BF2E7007B5568 /* HightlightButton.swift in Sources */,
 				C63A744E1F2BF2E7007B5568 /* BaseCustomView.swift in Sources */,
+				C60C70F41F2C4C03003D7FBC /* GenresModel.swift in Sources */,
 				C63A74861F2BF2E7007B5568 /* UITableViewExtension.swift in Sources */,
 				C63A74761F2BF2E7007B5568 /* MaterialRefreshControl.swift in Sources */,
 				C63A74791F2BF2E7007B5568 /* SwipeTableViewCell.swift in Sources */,
 				C63A747C1F2BF2E7007B5568 /* ArrayExtension.swift in Sources */,
-				C63A747D1F2BF2E7007B5568 /* NSDateExtension.swift in Sources */,
+				C63A747D1F2BF2E7007B5568 /* DateExtension.swift in Sources */,
 				C63A74811F2BF2E7007B5568 /* RangeExtension.swift in Sources */,
 				C63A74801F2BF2E7007B5568 /* NSObjectExtension.swift in Sources */,
 				C63A74551F2BF2E7007B5568 /* CoreDataHelper.swift in Sources */,
@@ -921,6 +932,7 @@
 				C63A74751F2BF2E7007B5568 /* MaterialInfiniteScrollingControl.swift in Sources */,
 				C63A74691F2BF2E7007B5568 /* BlurView.swift in Sources */,
 				C63A746A1F2BF2E7007B5568 /* ActionSheet.swift in Sources */,
+				C60C70F01F2C4777003D7FBC /* MovieModel.swift in Sources */,
 				C63A749C1F2BF2E7007B5568 /* UIImageViewDownloadExtension.swift in Sources */,
 				C63A74921F2BF2E7007B5568 /* PhotoViewerView.swift in Sources */,
 				C63A74541F2BF2E7007B5568 /* CoreDataHelper+MovieBooking.swift in Sources */,

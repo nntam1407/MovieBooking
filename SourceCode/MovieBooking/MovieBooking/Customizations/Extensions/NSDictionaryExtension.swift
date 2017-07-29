@@ -120,6 +120,22 @@ extension NSDictionary {
         return defaultValue
     }
     
+    func boolValueForKey(_ key: String) -> Bool {
+        if let rawValue = self[key] as? NSNumber {
+            return rawValue.boolValue
+        }
+        
+        return false
+    }
+    
+    func boolValueForKey(_ key: String, defaultValue: Bool) -> Bool {
+        if let rawValue = self[key] as? NSNumber {
+            return rawValue.boolValue
+        }
+        
+        return defaultValue
+    }
+    
     func dateValueNotNull(_ key: String) -> Date {
         let rawValue = self[key]
         
