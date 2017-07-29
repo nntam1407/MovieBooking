@@ -15,6 +15,7 @@ class MovieItemTableViewCell: BaseCustomTableViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     
     var movieData: MovieModel? {
         didSet {
@@ -59,6 +60,12 @@ class MovieItemTableViewCell: BaseCustomTableViewCell {
         
         self.movieTitleLabel.text = self.movieData?.getDisplayTitle()
         self.popularityLabel.text = String(format: "Popularity: %.2f", self.movieData!.popularity)
+        
+        if self.movieData!.releaseDate != nil {
+            self.releaseDateLabel.text = self.movieData!.releaseDate!.toString("MMM dd, yyyy")
+        } else {
+            self.releaseDateLabel.text = nil
+        }
         
         // Set poster image
         let posterImageURL = WebServices.posterImageURL(imagePath: self.movieData?.posterPath)

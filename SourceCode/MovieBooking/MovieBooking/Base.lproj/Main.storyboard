@@ -107,17 +107,77 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xcp-DQ-jgI">
-                        <barButtonItem key="backBarButtonItem" title=" " id="mh8-n4-M8Q"/>
+                        <barButtonItem key="backBarButtonItem" id="mh8-n4-M8Q"/>
                     </navigationItem>
                     <connections>
                         <outlet property="loadingIndicatorView" destination="rV4-82-57u" id="f12-U1-lA4"/>
                         <outlet property="mainTableView" destination="zVf-jo-6B6" id="wob-bg-s1L"/>
                         <outlet property="noDataLabel" destination="ljO-Te-WkB" id="UrW-XF-4HA"/>
+                        <segue destination="Wlh-b3-i0z" kind="show" identifier="MovieDetailViewController" id="Pqf-AZ-out"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iez-WQ-BFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1604" y="-313"/>
+        </scene>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="4e4-x5-MqN">
+            <objects>
+                <viewController storyboardIdentifier="MovieDetailViewController" id="Wlh-b3-i0z" customClass="MovieDetailViewController" customModule="MovieBooking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QLg-Oa-5AU"/>
+                        <viewControllerLayoutGuide type="bottom" id="aAr-sj-IhG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BRS-Gy-gYQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zz4-bb-fpB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.24313725490196078" green="0.24313725490196078" blue="0.24313725490196078" alpha="1" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="cAz-Nx-DzL" userLabel="View - header">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QmE-vQ-pOz" userLabel="Image View - backdrop">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                            <color key="backgroundColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.078431372549019607" alpha="1" colorSpace="deviceRGB"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.078431372549019607" alpha="1" colorSpace="deviceRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="QmE-vQ-pOz" firstAttribute="leading" secondItem="cAz-Nx-DzL" secondAttribute="leading" id="6X7-EX-tbC"/>
+                                        <constraint firstAttribute="trailing" secondItem="QmE-vQ-pOz" secondAttribute="trailing" id="LBr-nP-Uvx"/>
+                                        <constraint firstAttribute="bottom" secondItem="QmE-vQ-pOz" secondAttribute="bottom" id="WgG-cy-y7L"/>
+                                        <constraint firstItem="QmE-vQ-pOz" firstAttribute="top" secondItem="cAz-Nx-DzL" secondAttribute="top" id="cdd-ZJ-oRT"/>
+                                    </constraints>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wlh-b3-i0z" id="u3G-7v-HqR"/>
+                                    <outlet property="delegate" destination="Wlh-b3-i0z" id="fMH-FY-uLa"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="aAr-sj-IhG" firstAttribute="top" secondItem="zz4-bb-fpB" secondAttribute="bottom" constant="-49" id="8NH-fz-th9"/>
+                            <constraint firstItem="zz4-bb-fpB" firstAttribute="leading" secondItem="BRS-Gy-gYQ" secondAttribute="leading" id="S6t-I3-6ou"/>
+                            <constraint firstAttribute="trailing" secondItem="zz4-bb-fpB" secondAttribute="trailing" id="gRS-M0-45Q"/>
+                            <constraint firstItem="zz4-bb-fpB" firstAttribute="top" secondItem="QLg-Oa-5AU" secondAttribute="bottom" constant="-64" id="tew-dp-N0z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backdropImageView" destination="QmE-vQ-pOz" id="FLm-sk-t6G"/>
+                        <outlet property="backdropImageViewTopConstraint" destination="cdd-ZJ-oRT" id="3Uz-k8-sL3"/>
+                        <outlet property="mainTableView" destination="zz4-bb-fpB" id="RUd-Dj-Fwe"/>
+                        <outlet property="tableHeaderView" destination="cAz-Nx-DzL" id="eL3-Z3-vfD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="91t-fb-Bns" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2432.8000000000002" y="-313.49325337331339"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="zHv-43-zst">

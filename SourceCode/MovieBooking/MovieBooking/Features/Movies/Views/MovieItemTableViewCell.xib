@@ -47,28 +47,37 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pp0-8d-5DW" userLabel="Label - Popularity">
-                        <rect key="frame" x="81" y="53" width="209.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="81" y="53" width="209.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adW-tm-nKM" userLabel="Label - Release date">
+                        <rect key="frame" x="81" y="77" width="209.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.64313725489999995" green="0.64313725489999995" blue="0.64313725489999995" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="8iD-eg-jTO" firstAttribute="leading" secondItem="cv7-n7-2u3" secondAttribute="trailing" constant="10" id="0Iq-GU-b9F"/>
-                    <constraint firstItem="Ae4-1s-eDz" firstAttribute="leading" secondItem="Pp0-8d-5DW" secondAttribute="trailing" constant="4.5" id="4nu-H7-dLr"/>
+                    <constraint firstItem="Ae4-1s-eDz" firstAttribute="leading" secondItem="Pp0-8d-5DW" secondAttribute="trailing" constant="5" id="4nu-H7-dLr"/>
                     <constraint firstItem="Ae4-1s-eDz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="F65-fO-VDh"/>
                     <constraint firstItem="Pp0-8d-5DW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="45" id="G1p-g9-YuD"/>
                     <constraint firstItem="Pp0-8d-5DW" firstAttribute="leading" secondItem="nSC-gk-9YU" secondAttribute="trailing" constant="10" id="G9p-k9-Hjd"/>
                     <constraint firstAttribute="bottom" secondItem="cv7-n7-2u3" secondAttribute="bottom" constant="8" id="Lqa-f3-d2M"/>
                     <constraint firstAttribute="trailing" secondItem="8iD-eg-jTO" secondAttribute="trailing" constant="30" id="NFv-hr-z9W"/>
                     <constraint firstAttribute="trailing" secondItem="Ae4-1s-eDz" secondAttribute="trailing" constant="15" id="Qc3-zH-Ks9"/>
+                    <constraint firstAttribute="trailing" secondItem="adW-tm-nKM" secondAttribute="trailing" constant="30" id="SP9-aj-UC3"/>
                     <constraint firstItem="nSC-gk-9YU" firstAttribute="width" secondItem="cv7-n7-2u3" secondAttribute="width" id="Wc4-Ci-VG1"/>
                     <constraint firstItem="8iD-eg-jTO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Wz4-98-u54"/>
                     <constraint firstItem="cv7-n7-2u3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="XaP-Cl-Mq9"/>
                     <constraint firstItem="nSC-gk-9YU" firstAttribute="height" secondItem="cv7-n7-2u3" secondAttribute="height" id="g2b-nY-DmX"/>
+                    <constraint firstItem="adW-tm-nKM" firstAttribute="top" secondItem="Pp0-8d-5DW" secondAttribute="bottom" constant="8" id="gSA-9B-y8u"/>
                     <constraint firstItem="nSC-gk-9YU" firstAttribute="centerX" secondItem="cv7-n7-2u3" secondAttribute="centerX" id="jM1-pd-7h3"/>
                     <constraint firstItem="nSC-gk-9YU" firstAttribute="centerY" secondItem="cv7-n7-2u3" secondAttribute="centerY" id="jyE-R4-RR0"/>
                     <constraint firstItem="cv7-n7-2u3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="sM5-kL-wyo"/>
+                    <constraint firstItem="adW-tm-nKM" firstAttribute="leading" secondItem="nSC-gk-9YU" secondAttribute="trailing" constant="10" id="uml-va-co4"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="deviceRGB"/>
@@ -77,6 +86,7 @@
                 <outlet property="movieTitleLabel" destination="8iD-eg-jTO" id="R5J-Dm-OBa"/>
                 <outlet property="popularityLabel" destination="Pp0-8d-5DW" id="6IN-we-vFH"/>
                 <outlet property="posterImageView" destination="cv7-n7-2u3" id="8om-RA-20p"/>
+                <outlet property="releaseDateLabel" destination="adW-tm-nKM" id="02Z-0x-U5S"/>
             </connections>
             <point key="canvasLocation" x="73" y="-145"/>
         </tableViewCell>

@@ -187,6 +187,18 @@ extension Date {
         return dateFormatter.date(from: dateString)
     }
     
+    static func lastDateOfThisYear() -> Date {
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .timeZone], from: Date())
+        components.day = 31
+        components.month = 12
+        components.hour = 23
+        components.minute = 59
+        components.second = 59
+        
+        return calendar.date(from: components)!
+    }
+    
     // MARK:
     // MARK: Methods support to convert to string value
     

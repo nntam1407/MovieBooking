@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieDetailTableViewCell" rowHeight="109" id="KGk-i7-Jjw" customClass="MovieDetailTableViewCell" customModule="MovieBooking" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="108.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ts5-rZ-c1N" userLabel="Label - title">
+                        <rect key="frame" x="15" y="15" width="290" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" red="0.50196078431372548" green="0.60784313725490191" blue="0.67843137254901964" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azk-eZ-zfp" userLabel="Label - Detail">
+                        <rect key="frame" x="15" y="54" width="290" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.32941176470588235" green="0.39215686274509803" blue="0.4392156862745098" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="Ts5-rZ-c1N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="C1m-iP-KYJ"/>
+                    <constraint firstAttribute="trailing" secondItem="azk-eZ-zfp" secondAttribute="trailing" constant="15" id="MZM-8M-r3c"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="azk-eZ-zfp" secondAttribute="bottom" constant="15" id="PBX-iM-3DE"/>
+                    <constraint firstItem="azk-eZ-zfp" firstAttribute="top" secondItem="Ts5-rZ-c1N" secondAttribute="bottom" constant="15" id="RE2-17-dNj"/>
+                    <constraint firstItem="Ts5-rZ-c1N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="bbr-rc-m2S"/>
+                    <constraint firstAttribute="trailing" secondItem="Ts5-rZ-c1N" secondAttribute="trailing" constant="15" id="nyt-ri-dpJ"/>
+                    <constraint firstItem="azk-eZ-zfp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="x6z-cd-WnT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="deviceRGB"/>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="contentLabel" destination="azk-eZ-zfp" id="kde-5X-VcM"/>
+                <outlet property="mainTitleLabel" destination="Ts5-rZ-c1N" id="7li-dx-d93"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="86.5"/>
+        </tableViewCell>
+    </objects>
+</document>

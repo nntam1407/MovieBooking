@@ -42,6 +42,16 @@ class MoviesViewController: BaseViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "MovieDetailViewController" {
+            if let vc = segue.destination as? MovieDetailViewController {
+                vc.movieData = sender as? MovieModel
+            }
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -117,7 +127,7 @@ class MoviesViewController: BaseViewController, UITableViewDelegate, UITableView
         // Start fetch data from API
         self.isLoadingData = true
         
-        WebServices.sharedInstance.discoverMovies(primaryReleaseDateBefore: Date(),
+        WebServices.sharedInstance.discoverMovies(primaryReleaseDateBefore: Date.lastDateOfThisYear(),
                                                   primaryReleaseDateAfter: nil,
                                                   sortBy: .primaryReleaseDateDESC,
                                                   pageIndex: self.pageIndex,
@@ -223,5 +233,7 @@ class MoviesViewController: BaseViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
         
         // Move to movie detail
+        let movieData = self.movies[indexPath.row]
+        self.performSegue(withIdentifier: "MovieDetailViewController", sender: movieData)
     }
 }
