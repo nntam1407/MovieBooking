@@ -10,29 +10,17 @@ import UIKit
 
 enum ResponseStatusCode: Int {
     case errorDefault = -1
-    case ok = 200
-    case created = 201
-    case accepted = 202
-    case found = 302
-    case errorNotAcceptable = 406
-    case errorBadRequest = 400
-    case errorAuthenticated = 401
-    case errorForbidden = 403
-    case errorNotFound = 404
-    case errorUnsupportMediaType = 415
 }
-
-let ResponseSuccessStatusCodes = [ResponseStatusCode.ok.rawValue,
-                                  ResponseStatusCode.created.rawValue,
-                                  ResponseStatusCode.accepted.rawValue]
 
 class WebServices: NSObject {
     
+    // MARK:
     // MARK: Properties
     
-    var baseURL = kWebServiceBaseURL
-    var deviceToken: String? = nil
+    var baseURL: String?
+    var apiKey: String?
     
+    // MARK:
     // MARK: Override methods
     
     override init() {
@@ -42,6 +30,7 @@ class WebServices: NSObject {
         self.setupDefaultHeaders()
     }
     
+    // MARK:
     // MARK: Static methods
     
     static let sharedInstance: WebServices = {
@@ -53,54 +42,65 @@ class WebServices: NSObject {
         return instance
     }()
     
+    // MARK:
     // MARK: Private methods
     
+    /// Set all default headers when calling APIs
     private func setupDefaultHeaders() {
         NetworkServices.sharedInstance.defaultRestAPIRequestHeaders["Content-Type"] = "application/json"
-        NetworkServices.sharedInstance.defaultRestAPIRequestHeaders["app-name"] = kAppName
-        NetworkServices.sharedInstance.defaultRestAPIRequestHeaders["app-version"] = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
-        
-        NetworkServices.sharedInstance.defaultRestAPIRequestHeaders["device-id"] = UIDevice.current.identifierForVendor?.uuidString
-        NetworkServices.sharedInstance.defaultRestAPIRequestHeaders["device-name"] = UIDevice.current.name
-        NetworkServices.sharedInstance.defaultRestAPIRequestHeaders["device-model"] = UIDevice.current.model
-        NetworkServices.sharedInstance.defaultRestAPIRequestHeaders["device-token"] = self.deviceToken
-        
-        NetworkServices.sharedInstance.defaultRestAPIRequestHeaders["os-name"] = "iOS"
-        NetworkServices.sharedInstance.defaultRestAPIRequestHeaders["os-version"] = UIDevice.current.systemVersion
     }
     
-    internal func createRequestURL(_ urlPath: String) -> String {
-        let result = self.baseURL + urlPath
-        
-        return result
-    }
-    
-    /**
-     Method parse and check status code response from server
-     Return true if statusCode is 200 or 201, 202
-     */
-    private func checkStatusCodeFromResponse(_ response: NSDictionary?) -> Bool {
-        let status = response?["status"] as? Int
-        
-        if (status != nil) {
-            if (ResponseSuccessStatusCodes.contains(status!)) {
-                return true
+    /// Create request URL from URL path
+    ///
+    /// - Parameter urlPath: sub path of API URL
+    /// - Returns: api url string
+    private func createRequestURL(_ urlPath: String) -> String {
+        if self.baseURL != nil {
+            var result = self.baseURL! + urlPath
+            
+            if (self.apiKey != nil) {
+                let index = result.characters.index(of: "?")
+                
+                if (index != nil) {
+                    result.append("&api_key=\(self.apiKey!)")
+                } else {
+                    result.append("?api_key=\(self.apiKey!)")
+                }
             }
+            
+            return result
         }
         
-        return false
+        return urlPath
     }
     
-    /**
-     Method return general error
-     */
+    
+    /// Method parse and check status code response from server
+    ///
+    /// - Parameter response: response data as dictionary format
+    /// - Returns: true if there is no status_code in response data
+    private func checkIsResponseSuccess(_ response: NSDictionary?) -> Bool {
+        if response?["status_code"] != nil {
+            return false
+        }
+        
+        return true
+    }
+    
+    
+    /// Sometime, because of some reason, we don't have any meaning error, so we need to present a general error for user
+    ///
+    /// - Parameters:
+    ///   - message: error message if have
+    ///   - code: error code if have
+    /// - Returns: error as NSError object
     func generalError(message: String?, code: Int?) -> NSError {
         if message == nil {
-            return NSError(domain: "Ahacho Business",
+            return NSError(domain: "MovieBooking",
                            code: code != nil ? code! : ResponseStatusCode.errorDefault.rawValue,
                            userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Unfortunately we are unable to process your submission. Please try again later. We apologise for the inconvenience.", comment: "")])
         } else {
-            return NSError(domain: "Ahacho Business",
+            return NSError(domain: "MovieBooking",
                            code: code != nil ? code! : ResponseStatusCode.errorDefault.rawValue,
                            userInfo: [NSLocalizedDescriptionKey: message!])
         }
@@ -134,14 +134,14 @@ class WebServices: NSObject {
                                                     DLog("Request: \(url):\nParams:\n\(String(describing: params))\nResponse:\n\(String(describing: response))")
                                                     
                                                     // We should check status code from response
-                                                    if (self.checkStatusCodeFromResponse(response)) {
+                                                    if (self.checkIsResponseSuccess(response)) {
                                                         
                                                         // Call success block
                                                         success?(url, response)
                                                         
                                                     } else {
-                                                        let statusCode = response?.intValueForKey("code")
-                                                        let message = response?.stringValueForKey("message")
+                                                        let statusCode = response?.intValueForKey("status_code")
+                                                        let message = response?.stringValueForKey("status_message")
                                                         let error = self.generalError(message: message, code: statusCode)
                                                         
                                                         // Call failed block
@@ -184,14 +184,14 @@ class WebServices: NSObject {
                                                                 DLog("Request: \(requestUrl):\n\(String(describing: response))")
                                                                 
                                                                 // We should check status code from response
-                                                                if (self.checkStatusCodeFromResponse(response)) {
+                                                                if (self.checkIsResponseSuccess(response)) {
                                                                     
                                                                     // Call success block
                                                                     success?(response)
                                                                     
                                                                 } else {
-                                                                    let statusCode = response?.intValueForKey("code")
-                                                                    let message = response?.stringValueForKey("message")
+                                                                    let statusCode = response?.intValueForKey("status_code")
+                                                                    let message = response?.stringValueForKey("status_message")
                                                                     let error = self.generalError(message: message, code: statusCode)
                                                                     
                                                                     // Call failed block

@@ -13,6 +13,8 @@
 		C60C70F01F2C4777003D7FBC /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70EF1F2C4777003D7FBC /* MovieModel.swift */; };
 		C60C70F21F2C4B87003D7FBC /* SpokenLanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70F11F2C4B87003D7FBC /* SpokenLanguageModel.swift */; };
 		C60C70F41F2C4C03003D7FBC /* GenresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70F31F2C4C03003D7FBC /* GenresModel.swift */; };
+		C60C70F61F2C5569003D7FBC /* WebServices+Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70F51F2C5569003D7FBC /* WebServices+Movies.swift */; };
+		C60C70F81F2C5D45003D7FBC /* WebServices+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C70F71F2C5D45003D7FBC /* WebServices+Images.swift */; };
 		C63A737F1F2BF0EC007B5568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A737E1F2BF0EC007B5568 /* AppDelegate.swift */; };
 		C63A73861F2BF0EC007B5568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C63A73841F2BF0EC007B5568 /* Main.storyboard */; };
 		C63A73881F2BF0EC007B5568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63A73871F2BF0EC007B5568 /* Assets.xcassets */; };
@@ -120,6 +122,8 @@
 		C60C70EF1F2C4777003D7FBC /* MovieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		C60C70F11F2C4B87003D7FBC /* SpokenLanguageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpokenLanguageModel.swift; sourceTree = "<group>"; };
 		C60C70F31F2C4C03003D7FBC /* GenresModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenresModel.swift; sourceTree = "<group>"; };
+		C60C70F51F2C5569003D7FBC /* WebServices+Movies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebServices+Movies.swift"; sourceTree = "<group>"; };
+		C60C70F71F2C5D45003D7FBC /* WebServices+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebServices+Images.swift"; sourceTree = "<group>"; };
 		C63A737B1F2BF0EC007B5568 /* MovieBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63A737E1F2BF0EC007B5568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C63A73851F2BF0EC007B5568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 			children = (
 				C63A73C31F2BF2E7007B5568 /* WebServices+Defines.swift */,
 				C63A73C41F2BF2E7007B5568 /* WebServices.swift */,
+				C60C70F51F2C5569003D7FBC /* WebServices+Movies.swift */,
+				C60C70F71F2C5D45003D7FBC /* WebServices+Images.swift */,
 			);
 			path = WebServices;
 			sourceTree = "<group>";
@@ -913,6 +919,7 @@
 				C63A74811F2BF2E7007B5568 /* RangeExtension.swift in Sources */,
 				C63A74801F2BF2E7007B5568 /* NSObjectExtension.swift in Sources */,
 				C63A74551F2BF2E7007B5568 /* CoreDataHelper.swift in Sources */,
+				C60C70F61F2C5569003D7FBC /* WebServices+Movies.swift in Sources */,
 				C63A74471F2BF2E7007B5568 /* BaseTableViewController.swift in Sources */,
 				C63A748D1F2BF2E7007B5568 /* CountryManager.swift in Sources */,
 				C63A747E1F2BF2E7007B5568 /* NSDictionaryExtension.swift in Sources */,
@@ -945,6 +952,7 @@
 				C63A748B1F2BF2E7007B5568 /* CountryData.swift in Sources */,
 				C63A746D1F2BF2E7007B5568 /* BottomSheetView.swift in Sources */,
 				C63A74771F2BF2E7007B5568 /* RichTextLabel.swift in Sources */,
+				C60C70F81F2C5D45003D7FBC /* WebServices+Images.swift in Sources */,
 				C63A74681F2BF2E7007B5568 /* AhaUtilityTextField.swift in Sources */,
 				C63A749B1F2BF2E7007B5568 /* UIButtonDownloadExtension.swift in Sources */,
 				C63A744D1F2BF2E7007B5568 /* BaseCustomTableViewCell.swift in Sources */,

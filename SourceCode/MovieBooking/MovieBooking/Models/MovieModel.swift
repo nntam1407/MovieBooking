@@ -36,6 +36,9 @@ class MovieModel: BaseModel {
     var durationInMinutes = 0
     var releaseDate: Date?
     
+    // MARK:
+    // MARK: Initialization methods
+    
     override init(fromDict dict: NSDictionary) {
         super.init(fromDict: dict)
         

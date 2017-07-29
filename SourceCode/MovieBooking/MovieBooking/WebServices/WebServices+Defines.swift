@@ -9,7 +9,8 @@
 import Foundation
 
 struct API_ENDPOINTS {
-    static let getMovies = (path: "discover/movie", method: HTTPMethod.GET)
+    static let getMovies = (path: "/discover/movie", method: HTTPMethod.GET)
+    static let getMovieDetail = (path: "/movie/%d", method: HTTPMethod.GET)
 }
 
 let kWebServiceDefaultPageSize: Int = 20
