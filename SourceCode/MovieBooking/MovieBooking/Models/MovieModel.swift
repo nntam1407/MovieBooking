@@ -82,4 +82,15 @@ class MovieModel: BaseModel {
             self.releaseDate = Date.fromDateString(dateString: releaseDateString, format: kMovieReleaseDateStringFormat)
         }
     }
+    
+    // MARK:
+    // MARK: Some support methods
+    
+    func getDisplayTitle() -> String? {
+        if self.title != nil {
+            return self.title
+        }
+        
+        return self.originalTitle
+    }
 }

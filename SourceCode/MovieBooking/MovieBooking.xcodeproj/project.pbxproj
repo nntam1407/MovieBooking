@@ -93,6 +93,8 @@
 		C63A749C1F2BF2E7007B5568 /* UIImageViewDownloadExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A743E1F2BF2E7007B5568 /* UIImageViewDownloadExtension.swift */; };
 		C63A749D1F2BF2E7007B5568 /* UploadRequestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A743F1F2BF2E7007B5568 /* UploadRequestItem.swift */; };
 		C63A74A01F2BF504007B5568 /* RootTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63A749F1F2BF504007B5568 /* RootTabbarViewController.swift */; };
+		C6BCBE921F2C9F5A007C52B5 /* MovieItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BCBE901F2C9F5A007C52B5 /* MovieItemTableViewCell.swift */; };
+		C6BCBE931F2C9F5A007C52B5 /* MovieItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6BCBE911F2C9F5A007C52B5 /* MovieItemTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +213,8 @@
 		C63A743E1F2BF2E7007B5568 /* UIImageViewDownloadExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewDownloadExtension.swift; sourceTree = "<group>"; };
 		C63A743F1F2BF2E7007B5568 /* UploadRequestItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadRequestItem.swift; sourceTree = "<group>"; };
 		C63A749F1F2BF504007B5568 /* RootTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabbarViewController.swift; sourceTree = "<group>"; };
+		C6BCBE901F2C9F5A007C52B5 /* MovieItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieItemTableViewCell.swift; sourceTree = "<group>"; };
+		C6BCBE911F2C9F5A007C52B5 /* MovieItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieItemTableViewCell.xib; sourceTree = "<group>"; };
 		FA1B5ED4367BD1FDD3DF1B40 /* Pods-MovieBookingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBookingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieBookingUITests/Pods-MovieBookingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -275,6 +279,8 @@
 		C60C70FB1F2C74AC003D7FBC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C6BCBE901F2C9F5A007C52B5 /* MovieItemTableViewCell.swift */,
+				C6BCBE911F2C9F5A007C52B5 /* MovieItemTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -762,6 +768,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BCBE931F2C9F5A007C52B5 /* MovieItemTableViewCell.xib in Resources */,
 				C63A738B1F2BF0EC007B5568 /* LaunchScreen.storyboard in Resources */,
 				C63A74931F2BF2E7007B5568 /* PhotoViewerView.xib in Resources */,
 				C63A74951F2BF2E7007B5568 /* VideoPlayerView.xib in Resources */,
@@ -967,6 +974,7 @@
 				C63A74911F2BF2E7007B5568 /* MediaPlayerManager.swift in Sources */,
 				C63A74441F2BF2E7007B5568 /* AppSetting.swift in Sources */,
 				C63A74851F2BF2E7007B5568 /* UIScrollViewExtension.swift in Sources */,
+				C6BCBE921F2C9F5A007C52B5 /* MovieItemTableViewCell.swift in Sources */,
 				C63A74751F2BF2E7007B5568 /* MaterialInfiniteScrollingControl.swift in Sources */,
 				C63A74691F2BF2E7007B5568 /* BlurView.swift in Sources */,
 				C63A746A1F2BF2E7007B5568 /* ActionSheet.swift in Sources */,

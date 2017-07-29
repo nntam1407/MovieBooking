@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieItemTableViewCell" id="KGk-i7-Jjw" customClass="MovieItemTableViewCell" customModule="MovieBooking" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_next_icon_dark_grey" translatesAutoresizingMaskIntoConstraints="NO" id="Ae4-1s-eDz">
+                        <rect key="frame" x="295" y="42" width="10" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="0nW-bm-fjU"/>
+                            <constraint firstAttribute="height" constant="16" id="JgG-es-GLo"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cv7-n7-2u3" userLabel="Image View - poster">
+                        <rect key="frame" x="15" y="8" width="55.5" height="83.5"/>
+                        <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="cv7-n7-2u3" secondAttribute="height" multiplier="1:1.5" id="3jL-3A-jjU"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSC-gk-9YU" userLabel="Button - avatar button" customClass="HightlightButton" customModule="MovieBooking" customModuleProvider="target">
+                        <rect key="frame" x="15" y="8.5" width="55.5" height="83.5"/>
+                        <connections>
+                            <action selector="didTouchOnAvatarButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="A0F-BP-4UR"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iD-eg-jTO" userLabel="Label - title">
+                        <rect key="frame" x="80.5" y="8" width="209.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pp0-8d-5DW" userLabel="Label - Popularity">
+                        <rect key="frame" x="81" y="53" width="209.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8iD-eg-jTO" firstAttribute="leading" secondItem="cv7-n7-2u3" secondAttribute="trailing" constant="10" id="0Iq-GU-b9F"/>
+                    <constraint firstItem="Ae4-1s-eDz" firstAttribute="leading" secondItem="Pp0-8d-5DW" secondAttribute="trailing" constant="4.5" id="4nu-H7-dLr"/>
+                    <constraint firstItem="Ae4-1s-eDz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="F65-fO-VDh"/>
+                    <constraint firstItem="Pp0-8d-5DW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="45" id="G1p-g9-YuD"/>
+                    <constraint firstItem="Pp0-8d-5DW" firstAttribute="leading" secondItem="nSC-gk-9YU" secondAttribute="trailing" constant="10" id="G9p-k9-Hjd"/>
+                    <constraint firstAttribute="bottom" secondItem="cv7-n7-2u3" secondAttribute="bottom" constant="8" id="Lqa-f3-d2M"/>
+                    <constraint firstAttribute="trailing" secondItem="8iD-eg-jTO" secondAttribute="trailing" constant="30" id="NFv-hr-z9W"/>
+                    <constraint firstAttribute="trailing" secondItem="Ae4-1s-eDz" secondAttribute="trailing" constant="15" id="Qc3-zH-Ks9"/>
+                    <constraint firstItem="nSC-gk-9YU" firstAttribute="width" secondItem="cv7-n7-2u3" secondAttribute="width" id="Wc4-Ci-VG1"/>
+                    <constraint firstItem="8iD-eg-jTO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Wz4-98-u54"/>
+                    <constraint firstItem="cv7-n7-2u3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="XaP-Cl-Mq9"/>
+                    <constraint firstItem="nSC-gk-9YU" firstAttribute="height" secondItem="cv7-n7-2u3" secondAttribute="height" id="g2b-nY-DmX"/>
+                    <constraint firstItem="nSC-gk-9YU" firstAttribute="centerX" secondItem="cv7-n7-2u3" secondAttribute="centerX" id="jM1-pd-7h3"/>
+                    <constraint firstItem="nSC-gk-9YU" firstAttribute="centerY" secondItem="cv7-n7-2u3" secondAttribute="centerY" id="jyE-R4-RR0"/>
+                    <constraint firstItem="cv7-n7-2u3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="sM5-kL-wyo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="deviceRGB"/>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="movieTitleLabel" destination="8iD-eg-jTO" id="R5J-Dm-OBa"/>
+                <outlet property="popularityLabel" destination="Pp0-8d-5DW" id="6IN-we-vFH"/>
+                <outlet property="posterImageView" destination="cv7-n7-2u3" id="8om-RA-20p"/>
+            </connections>
+            <point key="canvasLocation" x="73" y="-145"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_next_icon_dark_grey" width="15" height="24"/>
+    </resources>
+</document>

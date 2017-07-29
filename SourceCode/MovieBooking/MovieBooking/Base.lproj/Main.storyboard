@@ -62,11 +62,33 @@
                     <view key="view" contentMode="scaleToFill" id="3cZ-0d-3GB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-jo-6B6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.24313725490196078" green="0.24313725490196078" blue="0.24313725490196078" alpha="1" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Z7-zV-GHZ" id="TVn-vN-pga"/>
+                                    <outlet property="delegate" destination="8Z7-zV-GHZ" id="t04-Jg-61j"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zVf-jo-6B6" secondAttribute="trailing" id="4a9-vx-Rtq"/>
+                            <constraint firstItem="1vW-BG-thy" firstAttribute="top" secondItem="zVf-jo-6B6" secondAttribute="bottom" constant="-49" id="SkN-f5-aGm"/>
+                            <constraint firstItem="zVf-jo-6B6" firstAttribute="leading" secondItem="3cZ-0d-3GB" secondAttribute="leading" id="YWM-ak-6ax"/>
+                            <constraint firstItem="zVf-jo-6B6" firstAttribute="top" secondItem="xJ7-mH-gIh" secondAttribute="bottom" constant="-64" id="Zk7-ao-GG5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xcp-DQ-jgI">
                         <barButtonItem key="backBarButtonItem" title=" " id="mh8-n4-M8Q"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mainTableView" destination="zVf-jo-6B6" id="wob-bg-s1L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iez-WQ-BFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

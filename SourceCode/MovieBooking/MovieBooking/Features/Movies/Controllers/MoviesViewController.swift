@@ -8,14 +8,31 @@
 
 import UIKit
 
-class MoviesViewController: BaseViewController {
+class MoviesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var mainTableView: UITableView!
+    
+    // For pull refresh and load more data
+    var refreshControl: MaterialRefreshControl?
+    var loadmoreControl: MaterialInfiniteScrollingControl?
+    
+    // Movies data
+    var movies = [MovieModel]()
+    var pageIndex = 1
+    var isLoadingData = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         self.title = NSLocalizedString("Movies", comment: "")
+        
+        // Init table view
+        self.initForTableView()
+        
+        // Load movies data at first time
+        self.loadMoviesData(clearAllData: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,5 +50,162 @@ class MoviesViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK:
+    // MARK: Init methods
+    
+    func initForTableView() {
+        // Init pull to refresh and load more data
+        self.refreshControl = MaterialRefreshControl()
+        self.refreshControl!.addTarget(self, action: #selector(MoviesViewController.refreshControlValueChanged(control:)), for: .valueChanged)
+        
+        // This code will make pullToReload for table view smooth
+        let tempTableVC = UITableViewController()
+        tempTableVC.tableView = self.mainTableView
+        tempTableVC.refreshControl = self.refreshControl!
+        
+        self.loadmoreControl = MaterialInfiniteScrollingControl()
+        self.loadmoreControl!.addTarget(self, action: #selector(MoviesViewController.loadMoreControlValueChanged(control:)), for: .valueChanged)
+        self.loadmoreControl!.canLoading = false // Don't allow load more for first time
+        self.mainTableView.addSubview(self.loadmoreControl!)
+        
+        // Register cell for table view
+        self.mainTableView.register(UINib(nibName: "MovieItemTableViewCell", bundle: nil),
+                                    forCellReuseIdentifier: "MovieItemTableViewCell")
+        
+        // Remove addition lines below last cell of table view
+        self.mainTableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    // MARK:
+    // MARK: Handle events on UI
+    
+    // MARK:
+    // MARK: Custom events
+    
+    func refreshControlValueChanged(control: MaterialRefreshControl) {
+        self.pageIndex = 1
+        self.loadMoviesData(clearAllData: false)
+    }
 
+    func loadMoreControlValueChanged(control: MaterialInfiniteScrollingControl) {
+        self.loadMoviesData(clearAllData: false)
+    }
+    
+    // MARK:
+    // MARK: Data methods
+    
+    func loadMoviesData(clearAllData: Bool) {
+        if self.isLoadingData {
+            return
+        }
+        
+        if clearAllData {
+            self.movies.removeAll()
+            self.mainTableView.reloadData()
+            self.pageIndex = 1
+        }
+        
+        // Start fetch data from API
+        self.isLoadingData = true
+        
+        WebServices.sharedInstance.discoverMovies(primaryReleaseDateBefore: Date(),
+                                                  primaryReleaseDateAfter: nil,
+                                                  sortBy: .primaryReleaseDateDESC,
+                                                  pageIndex: self.pageIndex,
+                                                  success: { [weak self] (movies, canLoadMore) in
+                                                    
+                                                    // For sure self will not be nil while processing anything
+                                                    guard let strongSelf = self else {
+                                                        return
+                                                    }
+                                                    
+                                                    // In-case pull to reload the list, we should remove all old data before add new items to the list
+                                                    if strongSelf.pageIndex == 1 {
+                                                        strongSelf.movies = movies
+                                                        strongSelf.mainTableView.reloadData()
+                                                    } else {
+                                                        // Append data
+                                                        strongSelf.appendMovieDataAndUpdateTableView(appendingMovies: movies)
+                                                    }
+                                                    
+                                                    strongSelf.isLoadingData = false
+                                                    strongSelf.refreshControl?.endRefreshing()
+                                                    strongSelf.loadmoreControl?.endInfiniteLoading()
+                                                    
+                                                    // Can load more data or not
+                                                    strongSelf.pageIndex += 1
+                                                    strongSelf.loadmoreControl?.canLoading = canLoadMore
+        
+        }) { [weak self] (error) in
+            
+            // For sure self will not be nil while processing anything
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if strongSelf.movies.count > 0 {
+                AlertUtils.showAlert(title: NSLocalizedString("Getting data failed", comment: ""),
+                                     message: error.localizedDescription,
+                                     okButtonTitle: NSLocalizedString("OK", comment: ""),
+                                     onViewController: strongSelf)
+            } else {
+                // Show error and and try again button on main screen
+                
+            }
+            
+            strongSelf.isLoadingData = false
+            strongSelf.refreshControl?.endRefreshing()
+            strongSelf.loadmoreControl?.endInfiniteLoading()
+        }
+    }
+    
+    func appendMovieDataAndUpdateTableView(appendingMovies: [MovieModel]) {
+        if appendingMovies.count == 0 {
+            return
+        }
+        
+        let appendingIndex = self.movies.count
+        var appendingIndexPaths = [IndexPath]()
+        
+        // Start append in movie list
+        self.movies.append(contentsOf: appendingMovies)
+        
+        // Update table view
+        for rowIndex in appendingIndex...self.movies.count - 1 {
+            appendingIndexPaths.append(IndexPath(row: rowIndex, section: 0))
+        }
+        
+        self.mainTableView.insertRows(at: appendingIndexPaths, with: .fade)
+    }
+    
+    // MARK:
+    // MARK: UITableView's datasource and delegates
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return kMovieItemTableCellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieItemTableViewCell") as! MovieItemTableViewCell
+        
+        let movieData = self.movies[indexPath.row]
+        cell.movieData = movieData
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // Move to movie detail
+    }
 }

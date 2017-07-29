@@ -128,7 +128,9 @@ class MaterialInfiniteScrollingControl: UIControl {
         self.loadingView!.startAnimating()
         
         // Call trigger method
-        self.sendActions(for: UIControlEvents.valueChanged)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            self.sendActions(for: UIControlEvents.valueChanged)
+        }
     }
     
     func endInfiniteLoading() {
