@@ -207,14 +207,21 @@ class FavoritedVideosViewController: BaseViewController, UITableViewDelegate, UI
         var appendingIndexPaths = [IndexPath]()
         
         // Start append in movie list
-        self.movies.append(contentsOf: appendingMovies)
-        
-        // Update table view
-        for rowIndex in appendingIndex...self.movies.count - 1 {
-            appendingIndexPaths.append(IndexPath(row: rowIndex, section: 0))
+        if self.movies.count == 0 {
+            
+            self.movies = appendingMovies
+            self.mainTableView.reloadData()
+            
+        } else {
+            self.movies.append(contentsOf: appendingMovies)
+            
+            // Update table view
+            for rowIndex in appendingIndex...self.movies.count - 1 {
+                appendingIndexPaths.append(IndexPath(row: rowIndex, section: 0))
+            }
+            
+            self.mainTableView.insertRows(at: appendingIndexPaths, with: .fade)
         }
-        
-        self.mainTableView.insertRows(at: appendingIndexPaths, with: .fade)
     }
     
     // MARK:
