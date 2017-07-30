@@ -12,7 +12,7 @@ extension WebServices {
     
     class func posterImageURL(imagePath path:String?) -> String? {
         if path != nil {
-            let result = kWebServiceImageRootURL + "w500" + path!
+            let result = kWebServiceImageRootURL + "w300" + path!
             
             return result
         }

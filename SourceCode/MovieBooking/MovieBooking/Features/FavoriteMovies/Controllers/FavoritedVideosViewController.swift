@@ -47,6 +47,7 @@ class FavoritedVideosViewController: BaseViewController, UITableViewDelegate, UI
                        object: nil)
         
         // Load movies data at first time
+        self.requestTime = Date()
         self.loadMoviesData(clearAllData: true)
     }
 
@@ -106,8 +107,8 @@ class FavoritedVideosViewController: BaseViewController, UITableViewDelegate, UI
     // MARK: Handle notifications
     
     func notificationDidAddFavorite(notification: NSNotification?) {
-        if let inserteddMovie = notification?.object as? MovieModel {
-            self.movies.insert(inserteddMovie, at: 0)
+        if let insertedMovie = notification?.object as? MovieModel {
+            self.movies.insert(insertedMovie, at: 0)
             self.mainTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
         }
     }
