@@ -189,6 +189,146 @@
             </objects>
             <point key="canvasLocation" x="2432.8000000000002" y="-313.49325337331339"/>
         </scene>
+        <!--Internal Web View Controller-->
+        <scene sceneID="da6-b0-bpu">
+            <objects>
+                <viewController storyboardIdentifier="InternalWebViewController" automaticallyAdjustsScrollViewInsets="NO" id="PPs-l0-l9V" customClass="InternalWebViewController" customModule="MovieBooking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IVv-6g-KMw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ufa-5t-EHh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fLJ-e9-8WJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceo-gY-og5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" shipmentTrackingNumber="YES" flightNumber="YES" lookupSuggestion="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PPs-l0-l9V" id="FNn-JF-ZWN"/>
+                                </connections>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5H-eq-f8O" userLabel="View - loading indicator view" customClass="MaterialIndicatorView" customModule="MovieBooking" customModuleProvider="target">
+                                <rect key="frame" x="175" y="328.5" width="24" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="o4M-Oa-8IQ"/>
+                                    <constraint firstAttribute="height" constant="24" id="v18-ae-qIi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenStop" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KP-gf-Ife" userLabel="View - action view">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfI-vw-oYv" userLabel="View - line">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="RAa-S5-eqm">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="constant">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azn-U9-gDF" userLabel="Button - back">
+                                        <rect key="frame" x="5" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="otb-ms-i5o"/>
+                                        </constraints>
+                                        <state key="normal" image="ico_back_blue"/>
+                                        <state key="disabled" image="ico_back_grey"/>
+                                        <connections>
+                                            <action selector="didTouchOnBackButton:" destination="PPs-l0-l9V" eventType="touchUpInside" id="67H-iW-yHL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9p-ay-QfX" userLabel="Button - Forward">
+                                        <rect key="frame" x="65" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="4ec-Sz-Pg3"/>
+                                        </constraints>
+                                        <state key="normal" image="ico_next_blue"/>
+                                        <state key="disabled" image="ico_next_grey"/>
+                                        <connections>
+                                            <action selector="didTouchOnForwardButton:" destination="PPs-l0-l9V" eventType="touchUpInside" id="NEH-98-P7j"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TsZ-gm-JUq" userLabel="View - loading indicator view" customClass="MaterialIndicatorView" customModule="MovieBooking" customModuleProvider="target">
+                                        <rect key="frame" x="326" y="13" width="24" height="24"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="RF2-Eh-UoR"/>
+                                            <constraint firstAttribute="height" constant="24" id="tVO-P4-Tq5"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenStop" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBV-y6-7lj" userLabel="Button - refresh">
+                                        <rect key="frame" x="315" y="1" width="46" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="mbs-5p-x4G"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                        <state key="normal" image="ico_refresh"/>
+                                        <connections>
+                                            <action selector="didTouchOnRefreshButton:" destination="PPs-l0-l9V" eventType="touchUpInside" id="Scb-OQ-Wuv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TsZ-gm-JUq" secondAttribute="trailing" constant="25" id="60s-7c-Uwk"/>
+                                    <constraint firstItem="sfI-vw-oYv" firstAttribute="top" secondItem="4KP-gf-Ife" secondAttribute="top" id="7k4-eV-9qy"/>
+                                    <constraint firstAttribute="height" constant="50" id="HJY-oO-l6P"/>
+                                    <constraint firstItem="azn-U9-gDF" firstAttribute="top" secondItem="4KP-gf-Ife" secondAttribute="top" id="IHv-Jd-rHO"/>
+                                    <constraint firstItem="sfI-vw-oYv" firstAttribute="leading" secondItem="4KP-gf-Ife" secondAttribute="leading" id="PsI-AE-SI3"/>
+                                    <constraint firstAttribute="trailing" secondItem="sfI-vw-oYv" secondAttribute="trailing" id="Vcf-SA-jkX"/>
+                                    <constraint firstAttribute="trailing" secondItem="aBV-y6-7lj" secondAttribute="trailing" constant="14" id="YyZ-eh-s36"/>
+                                    <constraint firstAttribute="bottom" secondItem="azn-U9-gDF" secondAttribute="bottom" id="aL3-Cf-T8a"/>
+                                    <constraint firstItem="m9p-ay-QfX" firstAttribute="leading" secondItem="azn-U9-gDF" secondAttribute="trailing" constant="10" id="bRi-d6-3Ea"/>
+                                    <constraint firstItem="azn-U9-gDF" firstAttribute="leading" secondItem="4KP-gf-Ife" secondAttribute="leading" constant="5" id="kcX-DA-raz"/>
+                                    <constraint firstAttribute="bottom" secondItem="m9p-ay-QfX" secondAttribute="bottom" id="l5h-aJ-JQ4"/>
+                                    <constraint firstAttribute="bottom" secondItem="aBV-y6-7lj" secondAttribute="bottom" id="lnG-5N-CSV"/>
+                                    <constraint firstItem="aBV-y6-7lj" firstAttribute="top" secondItem="sfI-vw-oYv" secondAttribute="bottom" id="oDR-YX-i3E"/>
+                                    <constraint firstItem="m9p-ay-QfX" firstAttribute="top" secondItem="4KP-gf-Ife" secondAttribute="top" id="pNg-Tz-Z3m"/>
+                                    <constraint firstItem="TsZ-gm-JUq" firstAttribute="centerY" secondItem="4KP-gf-Ife" secondAttribute="centerY" id="wKU-c5-P5d"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D5H-eq-f8O" firstAttribute="centerX" secondItem="ceo-gY-og5" secondAttribute="centerX" id="AZn-rG-ydE"/>
+                            <constraint firstItem="ceo-gY-og5" firstAttribute="leading" secondItem="fLJ-e9-8WJ" secondAttribute="leading" id="MSl-yC-RbU"/>
+                            <constraint firstAttribute="trailing" secondItem="ceo-gY-og5" secondAttribute="trailing" id="OeG-3F-VDd"/>
+                            <constraint firstAttribute="trailing" secondItem="4KP-gf-Ife" secondAttribute="trailing" id="SWH-JW-neb"/>
+                            <constraint firstItem="Ufa-5t-EHh" firstAttribute="top" secondItem="4KP-gf-Ife" secondAttribute="bottom" id="WHp-ml-bSJ"/>
+                            <constraint firstItem="4KP-gf-Ife" firstAttribute="top" secondItem="ceo-gY-og5" secondAttribute="bottom" id="bj7-C5-blu"/>
+                            <constraint firstItem="4KP-gf-Ife" firstAttribute="leading" secondItem="fLJ-e9-8WJ" secondAttribute="leading" id="jIe-Za-eIt"/>
+                            <constraint firstItem="ceo-gY-og5" firstAttribute="top" secondItem="IVv-6g-KMw" secondAttribute="bottom" id="tHg-7M-jrw"/>
+                            <constraint firstItem="D5H-eq-f8O" firstAttribute="centerY" secondItem="ceo-gY-og5" secondAttribute="centerY" id="uPk-Wr-pYA"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="bottomActionView" destination="4KP-gf-Ife" id="MhX-qZ-5Nh"/>
+                        <outlet property="bottomIndicatorView" destination="TsZ-gm-JUq" id="p65-VD-ZJm"/>
+                        <outlet property="centerIndicatorView" destination="D5H-eq-f8O" id="yYS-XI-e4t"/>
+                        <outlet property="goBackButton" destination="azn-U9-gDF" id="wDr-q2-hX7"/>
+                        <outlet property="goForwardButton" destination="m9p-ay-QfX" id="EP0-Jp-94R"/>
+                        <outlet property="mainWebView" destination="ceo-gY-og5" id="KfD-Xx-7A3"/>
+                        <outlet property="refreshButton" destination="aBV-y6-7lj" id="E5H-V8-6uk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4u-XE-nNG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="821.60000000000002" y="1464.9175412293855"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="zHv-43-zst">
             <objects>
@@ -349,6 +489,11 @@
     <resources>
         <image name="ic_tabbar_more" width="25" height="5"/>
         <image name="ic_tabbar_movies" width="25" height="23"/>
+        <image name="ico_back_blue" width="16" height="26"/>
+        <image name="ico_back_grey" width="16" height="26"/>
+        <image name="ico_next_blue" width="16" height="26"/>
+        <image name="ico_next_grey" width="16" height="26"/>
+        <image name="ico_refresh" width="16" height="19"/>
         <image name="ico_setting_rate_us" width="24" height="24"/>
         <image name="ico_setting_send_feedback" width="24" height="24"/>
         <image name="ico_setting_share_with_friends" width="24" height="24"/>

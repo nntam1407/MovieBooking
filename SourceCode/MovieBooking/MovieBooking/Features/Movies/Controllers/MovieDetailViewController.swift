@@ -280,12 +280,24 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
     // MARK: MovieDetailSectionHeaderViewDelegates
     
     func movieDetailSectionHeaderDidTouchOnBuyButton(sender: MovieDetailSectionHeaderView) {
-        // Open webview
+        
+        let bookingURL = URL(string: kBookingTicketSiteURL)!
+        
+        // Open webview. On iOS 9.0 and higher, it's better if we open weblink in Safari controller
         if #available(iOS 9.0, *) {
-            let safariVC = SFSafariViewController(url: URL(string: kBookingTicketSiteURL)!)
+            
+            let safariVC = SFSafariViewController(url: bookingURL)
             self.present(safariVC, animated: true, completion: nil)
+            
         } else {
             // Display internal webView
+            if let webVC = Utils.loadViewController("InternalWebViewController", storyBoardName: "Main") as? InternalWebViewController {
+                webVC.url = bookingURL
+                webVC.title = NSLocalizedString("Book Ticket", comment: "")
+                
+                let navi = BaseNavigationViewController(rootViewController: webVC)
+                self.present(navi, animated: true, completion: nil)
+            }
         }
     }
     
