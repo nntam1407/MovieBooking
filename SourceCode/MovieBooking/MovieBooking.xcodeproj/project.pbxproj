@@ -390,8 +390,8 @@
 				C60C70F91F2C74AC003D7FBC /* Movies */,
 				C6BCBEB51F2D9440007C52B5 /* FavoriteMovies */,
 				C63A73DE1F2BF2E7007B5568 /* Settings */,
-				C63A73C81F2BF2E7007B5568 /* Base */,
 				C63A73DA1F2BF2E7007B5568 /* Root */,
+				C63A73C81F2BF2E7007B5568 /* Base */,
 			);
 			path = Features;
 			sourceTree = "<group>";
