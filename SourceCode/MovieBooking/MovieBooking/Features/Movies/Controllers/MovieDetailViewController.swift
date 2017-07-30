@@ -20,6 +20,7 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
     
     /// This is movie information section view, we only create this view once during lifetime
     var sectionHeaderView: MovieDetailSectionHeaderView?
+    weak var backdropShadowLayer: CAGradientLayer?
     
     /// Main movie data
     var movieData: MovieModel?
@@ -66,6 +67,9 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
             
             self.tableHeaderView.layoutIfNeeded()
             self.mainTableView.tableHeaderView = self.tableHeaderView
+            
+            // display shadow
+            self.displayShadowLayerOnBackdropImage()
         }
     }
     
@@ -81,6 +85,28 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
     // MARK:
     // MARK: Methods
     
+    func displayShadowLayerOnBackdropImage() {
+        guard self.movieData?.backdropPath != nil else {
+            return
+        }
+        
+        if self.backdropShadowLayer == nil {
+            let shadowLayer = CAGradientLayer()
+            shadowLayer.colors = [UIColor(white: 0, alpha: 0).cgColor,
+                                                UIColor.colorFromHexValue(0x1C1C1C).cgColor]
+            
+            self.tableHeaderView.layer.addSublayer(shadowLayer)
+            self.backdropShadowLayer = shadowLayer
+        }
+        
+        // Layout shadow
+        var frame = self.tableHeaderView.frame
+        frame.size.height = 50.0
+        frame.origin.x = 0
+        frame.origin.y = self.tableHeaderView.frame.size.height - frame.size.height
+        self.backdropShadowLayer?.frame = frame
+    }
+    
     func displayMovieInformation() {
         guard self.movieData != nil else {
             return
@@ -92,7 +118,10 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
             self.mainTableView.tableHeaderView = nil
         } else {
             let backdropImageURL = WebServices.backdropImageURL(imagePath: self.movieData!.backdropPath!)
-            self.backdropImageView.setImageURL(backdropImageURL, defaultImage: nil)
+            self.backdropImageView.setImageURL(backdropImageURL, defaultImage: #imageLiteral(resourceName: "ic_default_backdrop"))
+            
+            // display shadow
+            self.displayShadowLayerOnBackdropImage()
         }
         
         // Generate all display information
