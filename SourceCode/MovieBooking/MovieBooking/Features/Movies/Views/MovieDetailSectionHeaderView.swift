@@ -13,6 +13,7 @@ let kMovieDetailSectionHeaderHeight: CGFloat = 150.0
 @objc protocol MovieDetailSectionHeaderViewDelegates {
     @objc optional func movieDetailSectionHeaderDidTouchOnBuyButton(sender: MovieDetailSectionHeaderView)
     @objc optional func movieDetailSectionHeaderDidTouchOnPosterImage(sender: MovieDetailSectionHeaderView)
+    @objc optional func movieDetailSectionHeaderDidTouchOnFavorite(sender: MovieDetailSectionHeaderView, isFavorited: Bool)
 }
 
 class MovieDetailSectionHeaderView: UIView {
@@ -22,6 +23,7 @@ class MovieDetailSectionHeaderView: UIView {
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var bookTicketButton: HightlightButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     weak var delegate: MovieDetailSectionHeaderViewDelegates?
     
@@ -30,6 +32,8 @@ class MovieDetailSectionHeaderView: UIView {
             self.displayMovieInformation()
         }
     }
+    
+    var isFavoriedMovie = false
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -57,6 +61,10 @@ class MovieDetailSectionHeaderView: UIView {
         self.delegate?.movieDetailSectionHeaderDidTouchOnBuyButton?(sender: self)
     }
     
+    @IBAction func didTouchOnFavoriteButton(_ sender: Any) {
+        self.delegate?.movieDetailSectionHeaderDidTouchOnFavorite?(sender: self, isFavorited: self.isFavoriedMovie)
+    }
+    
     // MARK:
     // MARK: Methods
     
@@ -77,5 +85,9 @@ class MovieDetailSectionHeaderView: UIView {
         // Set poster image
         let posterImageURL = WebServices.posterImageURL(imagePath: self.movieData?.posterPath)
         self.posterImageView.setImageURL(posterImageURL, defaultImage: #imageLiteral(resourceName: "ic_default_poster_small"))
+        
+        // Favorite button
+        self.isFavoriedMovie = DataCacheManager.sharedInstance.isFavoritedMovie(movie: self.movieData!)
+        self.favoriteButton.isSelected = self.isFavoriedMovie
     }
 }

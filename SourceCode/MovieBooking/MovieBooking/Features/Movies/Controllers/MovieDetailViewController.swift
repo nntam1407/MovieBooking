@@ -73,6 +73,13 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Refresh table view
+        self.mainTableView.reloadData()
+    }
+    
     // MARK:
     // MARK: View's events
     
@@ -305,6 +312,21 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
         if let posterImageURL = WebServices.posterImageURL(imagePath: sender.movieData?.posterPath) {
             MediaPlayerManager.sharedInstance.displayImageFromURL(posterImageURL)
         }
+    }
+    
+    func movieDetailSectionHeaderDidTouchOnFavorite(sender: MovieDetailSectionHeaderView, isFavorited: Bool) {
+        if isFavorited {
+            DataCacheManager.sharedInstance.removeFavoriteMovie(movie: self.movieData!)
+            
+            Utils.notifPost(kNotificationDidRemoveFavorited, object: self.movieData!)
+        } else {
+            DataCacheManager.sharedInstance.addFavoriteMovie(movie: self.movieData!)
+            
+            Utils.notifPost(kNotificationDidAddFavorited, object: self.movieData!)
+        }
+        
+        // Refresh header view
+        self.sectionHeaderView?.movieData = self.movieData
     }
 
 }

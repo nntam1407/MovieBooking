@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juE-n4-3nz" userLabel="Label - title">
-                                <rect key="frame" x="112" y="12" width="248" height="24"/>
+                                <rect key="frame" x="112" y="12" width="213" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.46666666666666667" green="0.56470588235294117" blue="0.63137254901960782" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
@@ -67,12 +67,25 @@
                                     <action selector="didTouchOnBookButton:" destination="gjE-Z4-WVA" eventType="touchUpInside" id="vNq-6V-VxB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ca-Hj-c9p" userLabel="Button - favorite button">
+                                <rect key="frame" x="331" y="8" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="BPV-Zr-T15"/>
+                                    <constraint firstAttribute="width" constant="32" id="gig-2F-UiP"/>
+                                </constraints>
+                                <state key="normal" image="ic_favorited"/>
+                                <state key="selected" image="ic_favorited_fill"/>
+                                <connections>
+                                    <action selector="didTouchOnFavoriteButton:" destination="gjE-Z4-WVA" eventType="touchUpInside" id="Ivb-6i-TCw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="r9M-Kc-qbF" firstAttribute="centerX" secondItem="iIi-sb-SMD" secondAttribute="centerX" id="0lM-UW-z4x"/>
                             <constraint firstItem="KBz-R8-7Db" firstAttribute="leading" secondItem="iIi-sb-SMD" secondAttribute="trailing" constant="10" id="1bt-O3-R6E"/>
                             <constraint firstItem="juE-n4-3nz" firstAttribute="top" secondItem="UzH-u2-0h2" secondAttribute="top" constant="12" id="484-hx-5I5"/>
                             <constraint firstItem="iIi-sb-SMD" firstAttribute="leading" secondItem="UzH-u2-0h2" secondAttribute="leading" constant="15" id="Bg8-zq-Wd7"/>
+                            <constraint firstAttribute="trailing" secondItem="2Ca-Hj-c9p" secondAttribute="trailing" constant="12" id="EeU-XC-Ci9"/>
                             <constraint firstItem="r9M-Kc-qbF" firstAttribute="width" secondItem="iIi-sb-SMD" secondAttribute="width" id="Eop-Mx-P5o"/>
                             <constraint firstItem="Ljx-oJ-7cb" firstAttribute="leading" secondItem="iIi-sb-SMD" secondAttribute="trailing" constant="10" id="GQ9-nQ-EoI"/>
                             <constraint firstAttribute="bottom" secondItem="KBz-R8-7Db" secondAttribute="bottom" constant="12" id="Ijd-FD-lN7"/>
@@ -81,8 +94,9 @@
                             <constraint firstItem="juE-n4-3nz" firstAttribute="leading" secondItem="iIi-sb-SMD" secondAttribute="trailing" constant="10" id="U5f-vp-I2R"/>
                             <constraint firstItem="r9M-Kc-qbF" firstAttribute="height" secondItem="iIi-sb-SMD" secondAttribute="height" id="WCV-uc-d46"/>
                             <constraint firstItem="r9M-Kc-qbF" firstAttribute="centerY" secondItem="iIi-sb-SMD" secondAttribute="centerY" id="ZYT-Dj-XvH"/>
+                            <constraint firstItem="2Ca-Hj-c9p" firstAttribute="top" secondItem="UzH-u2-0h2" secondAttribute="top" constant="8" id="bcm-gO-dLd"/>
                             <constraint firstAttribute="trailing" secondItem="P9i-8W-nWz" secondAttribute="trailing" constant="15" id="dvA-Dz-nR3"/>
-                            <constraint firstAttribute="trailing" secondItem="juE-n4-3nz" secondAttribute="trailing" constant="15" id="ogz-XA-wyy"/>
+                            <constraint firstAttribute="trailing" secondItem="juE-n4-3nz" secondAttribute="trailing" constant="50" id="ogz-XA-wyy"/>
                             <constraint firstAttribute="bottom" secondItem="P9i-8W-nWz" secondAttribute="bottom" constant="10" id="twM-Zm-YqR"/>
                             <constraint firstItem="KBz-R8-7Db" firstAttribute="top" secondItem="Ljx-oJ-7cb" secondAttribute="bottom" constant="10" id="yJ9-Zg-WFA"/>
                         </constraints>
@@ -103,6 +117,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bookTicketButton" destination="P9i-8W-nWz" id="rOD-6J-eG8"/>
+                <outlet property="favoriteButton" destination="2Ca-Hj-c9p" id="pKC-tE-Yy6"/>
                 <outlet property="popularityLabel" destination="Ljx-oJ-7cb" id="qrZ-Zg-lTs"/>
                 <outlet property="posterImageView" destination="iIi-sb-SMD" id="bF6-Bf-VXy"/>
                 <outlet property="releaseDateLabel" destination="KBz-R8-7Db" id="Iav-6n-aeL"/>
@@ -111,4 +126,8 @@
             <point key="canvasLocation" x="17.5" y="49"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_favorited" width="28" height="25"/>
+        <image name="ic_favorited_fill" width="28" height="25"/>
+    </resources>
 </document>

@@ -106,6 +106,7 @@
 		C6BCBEB21F2D8734007C52B5 /* FavoriteMovie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BCBEAE1F2D8734007C52B5 /* FavoriteMovie+CoreDataProperties.swift */; };
 		C6BCBEB31F2D8734007C52B5 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BCBEAF1F2D8734007C52B5 /* Movie+CoreDataClass.swift */; };
 		C6BCBEB41F2D8734007C52B5 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BCBEB01F2D8734007C52B5 /* Movie+CoreDataProperties.swift */; };
+		C6BCBEB91F2D9887007C52B5 /* FavoritedVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BCBEB81F2D9887007C52B5 /* FavoritedVideosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +238,7 @@
 		C6BCBEAE1F2D8734007C52B5 /* FavoriteMovie+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteMovie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C6BCBEAF1F2D8734007C52B5 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C6BCBEB01F2D8734007C52B5 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C6BCBEB81F2D9887007C52B5 /* FavoritedVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritedVideosViewController.swift; sourceTree = "<group>"; };
 		FA1B5ED4367BD1FDD3DF1B40 /* Pods-MovieBookingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBookingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieBookingUITests/Pods-MovieBookingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -386,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				C60C70F91F2C74AC003D7FBC /* Movies */,
+				C6BCBEB51F2D9440007C52B5 /* FavoriteMovies */,
 				C63A73DE1F2BF2E7007B5568 /* Settings */,
 				C63A73C81F2BF2E7007B5568 /* Base */,
 				C63A73DA1F2BF2E7007B5568 /* Root */,
@@ -679,6 +682,30 @@
 				C6BCBEB01F2D8734007C52B5 /* Movie+CoreDataProperties.swift */,
 			);
 			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		C6BCBEB51F2D9440007C52B5 /* FavoriteMovies */ = {
+			isa = PBXGroup;
+			children = (
+				C6BCBEB61F2D9440007C52B5 /* Controllers */,
+				C6BCBEB71F2D9440007C52B5 /* Views */,
+			);
+			path = FavoriteMovies;
+			sourceTree = "<group>";
+		};
+		C6BCBEB61F2D9440007C52B5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C6BCBEB81F2D9887007C52B5 /* FavoritedVideosViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C6BCBEB71F2D9440007C52B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D6BAC2108B6645DE2D67059B /* Frameworks */ = {
@@ -1030,6 +1057,7 @@
 				C63A749C1F2BF2E7007B5568 /* UIImageViewDownloadExtension.swift in Sources */,
 				C63A74921F2BF2E7007B5568 /* PhotoViewerView.swift in Sources */,
 				C63A74541F2BF2E7007B5568 /* CoreDataHelper+MovieBooking.swift in Sources */,
+				C6BCBEB91F2D9887007C52B5 /* FavoritedVideosViewController.swift in Sources */,
 				C63A74881F2BF2E7007B5568 /* AlertUtils.swift in Sources */,
 				C63A74741F2BF2E7007B5568 /* MaterialIndicatorView.swift in Sources */,
 				C63A74421F2BF2E7007B5568 /* WebServices.swift in Sources */,

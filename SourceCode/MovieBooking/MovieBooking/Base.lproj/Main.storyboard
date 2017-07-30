@@ -26,7 +26,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="3RE-x8-qg4" kind="relationship" relationship="viewControllers" id="ikD-uT-out"/>
-                        <segue destination="0IW-Tx-wzg" kind="relationship" relationship="viewControllers" id="5lJ-5V-J0G"/>
+                        <segue destination="YGt-gf-yCs" kind="relationship" relationship="viewControllers" id="zgK-Pz-fAk"/>
+                        <segue destination="0IW-Tx-wzg" kind="relationship" relationship="viewControllers" id="pSK-W1-CTi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -50,6 +51,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56L-yJ-hLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="822" y="-313"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="y7I-3B-cE7">
+            <objects>
+                <navigationController id="YGt-gf-yCs" customClass="BaseNavigationViewController" customModule="MovieBooking" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="ic_tabbar_favorited" id="tuI-bK-9j4"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="tF2-Ku-xLd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cPi-x3-kDB" kind="relationship" relationship="rootViewController" id="6Iz-qf-Ji0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6N0-bM-pMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="475"/>
+        </scene>
+        <!--Favorited Videos View Controller-->
+        <scene sceneID="gMC-Pe-uIi">
+            <objects>
+                <viewController storyboardIdentifier="FavoritedVideosViewController" id="cPi-x3-kDB" customClass="FavoritedVideosViewController" customModule="MovieBooking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jYv-cs-arR"/>
+                        <viewControllerLayoutGuide type="bottom" id="l8F-1L-Nly"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="39J-9z-3u0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3RM-5M-g6S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cPi-x3-kDB" id="jwe-JP-ihb"/>
+                                    <outlet property="delegate" destination="cPi-x3-kDB" id="HWu-fU-65w"/>
+                                </connections>
+                            </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No favorites" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DG-j6-Rn2">
+                                <rect key="frame" x="141.5" y="323" width="92.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.64313725489999995" green="0.64313725489999995" blue="0.64313725489999995" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQW-kY-UoN" userLabel="View - Loading" customClass="MaterialIndicatorView" customModule="MovieBooking" customModuleProvider="target">
+                                <rect key="frame" x="175" y="321" width="24" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="DSO-mh-g9J"/>
+                                    <constraint firstAttribute="width" constant="24" id="ifv-2L-n53"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideWhenStop" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="3RM-5M-g6S" firstAttribute="top" secondItem="39J-9z-3u0" secondAttribute="top" id="3L1-2f-Xnb"/>
+                            <constraint firstItem="sQW-kY-UoN" firstAttribute="centerX" secondItem="3RM-5M-g6S" secondAttribute="centerX" id="40s-zW-zOe"/>
+                            <constraint firstItem="3RM-5M-g6S" firstAttribute="leading" secondItem="39J-9z-3u0" secondAttribute="leading" id="AdM-TY-hTK"/>
+                            <constraint firstItem="2DG-j6-Rn2" firstAttribute="centerX" secondItem="3RM-5M-g6S" secondAttribute="centerX" id="L0H-bn-siR"/>
+                            <constraint firstItem="2DG-j6-Rn2" firstAttribute="centerY" secondItem="3RM-5M-g6S" secondAttribute="centerY" id="UXx-DN-UM7"/>
+                            <constraint firstItem="sQW-kY-UoN" firstAttribute="centerY" secondItem="3RM-5M-g6S" secondAttribute="centerY" id="YhD-uY-2ds"/>
+                            <constraint firstAttribute="trailing" secondItem="3RM-5M-g6S" secondAttribute="trailing" id="ZoS-DF-6NM"/>
+                            <constraint firstAttribute="bottom" secondItem="3RM-5M-g6S" secondAttribute="bottom" id="iVL-PX-9sH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="W01-fl-SJs"/>
+                    <connections>
+                        <outlet property="loadingIndicatorView" destination="sQW-kY-UoN" id="4lG-Hv-JA0"/>
+                        <outlet property="mainTableView" destination="3RM-5M-g6S" id="gGz-6N-Hm2"/>
+                        <outlet property="noDataLabel" destination="2DG-j6-Rn2" id="oW9-yG-iqF"/>
+                        <segue destination="Wlh-b3-i0z" kind="show" identifier="MovieDetailViewController" id="gzS-kd-Pj5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7HS-2S-zsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1527" y="475"/>
         </scene>
         <!--Movies View Controller-->
         <scene sceneID="Cu8-EV-IT0">
@@ -327,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4u-XE-nNG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="821.60000000000002" y="1464.9175412293855"/>
+            <point key="canvasLocation" x="842" y="2288"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="zHv-43-zst">
@@ -464,7 +548,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etE-VE-0mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1775" y="680"/>
+            <point key="canvasLocation" x="1794" y="1503"/>
         </scene>
         <!--More-->
         <scene sceneID="rzt-Bc-iiu">
@@ -483,19 +567,23 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKR-ni-cEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="823" y="680"/>
+            <point key="canvasLocation" x="842" y="1503"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ic_tabbar_favorited" width="25" height="23"/>
         <image name="ic_tabbar_more" width="25" height="5"/>
         <image name="ic_tabbar_movies" width="25" height="23"/>
         <image name="ico_back_blue" width="16" height="26"/>
         <image name="ico_back_grey" width="16" height="26"/>
         <image name="ico_next_blue" width="16" height="26"/>
         <image name="ico_next_grey" width="16" height="26"/>
-        <image name="ico_refresh" width="16" height="19"/>
+        <image name="ico_refresh" width="27" height="30"/>
         <image name="ico_setting_rate_us" width="24" height="24"/>
         <image name="ico_setting_send_feedback" width="24" height="24"/>
         <image name="ico_setting_share_with_friends" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gzS-kd-Pj5"/>
+    </inferredMetricsTieBreakers>
 </document>

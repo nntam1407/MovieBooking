@@ -75,28 +75,31 @@ extension DataCacheManager {
         }
     }
     
-    func getFavoriteMovies(fromTime: Date, limit: Int) -> [MovieModel] {
+    func getFavoriteMovies(fromTime: Date, limit: Int) -> ([MovieModel], Date?) {
         var result = [MovieModel]()
+        var nextTime: Date?
         
         if let coreDataFavorites = self.coreDataHelper?.getFavoriteMovies(fromTime: fromTime, limit: limit) {
             for favorite in coreDataFavorites where favorite.movie != nil {
                 let movie = self.convertCoreDataMovieToMovieModel(coreDataMovie: favorite.movie!)
                 result.append(movie)
             }
+            
+            nextTime = coreDataFavorites.last?.createdDate as Date?
         }
         
-        return result
+        return (result, nextTime)
     }
     
     func getFavoritedMoviesAsync(fromTime: Date,
                                  limit: Int,
-                                 completed: @escaping (_ movies: [MovieModel]) -> Void) {
+                                 completed: @escaping (_ movies: [MovieModel], _ nextTime: Date?) -> Void) {
         
         DispatchQueue.global(qos: .default).async {
-            let movies = self.getFavoriteMovies(fromTime: fromTime, limit: limit)
+            let result = self.getFavoriteMovies(fromTime: fromTime, limit: limit)
             
             DispatchQueue.main.async {
-                completed(movies)
+                completed(result.0, result.1)
             }
         }
     }

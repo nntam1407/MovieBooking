@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum TabbarIndexEnum: Int {
+    case movies = 0
+    case favorited = 1
+    case more = 2
+}
+
 class RootTabbarViewController: BaseTabbarViewController {
 
     override func viewDidLoad() {
@@ -31,5 +37,16 @@ class RootTabbarViewController: BaseTabbarViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK:
+    // MARK: UITabBarControllerDelegate
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if self.selectedIndex == TabbarIndexEnum.more.rawValue {
+            self.tabBar.barStyle = .default
+        } else {
+            self.tabBar.barStyle = .black
+        }
+    }
 
 }

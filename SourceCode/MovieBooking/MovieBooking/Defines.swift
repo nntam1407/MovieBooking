@@ -25,6 +25,9 @@ let kAppSupportEmail = "nntam1407@gmail.com"
 // MARK: Define for all global notifications keys
 let kNotificationUpdateLocalizedText = "kNotificationUpdateLocalizedText"
 
+let kNotificationDidAddFavorited = "kNotificationDidAddFavorited"
+let kNotificationDidRemoveFavorited = "kNotificationDidRemoveFavorited"
+
 // MARK: UI's Apperances
 let kDefaultBarTintColor = 0x2196F3
 let kDefaultButtonTintColor = 0x2891f7
