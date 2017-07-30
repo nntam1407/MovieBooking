@@ -9,8 +9,7 @@
 import UIKit
 
 class BaseModel: NSObject {
-    
-    init(fromDict dict: NSDictionary) {
+    init(fromDict dict: NSDictionary?) {
         super.init()
     }
 }

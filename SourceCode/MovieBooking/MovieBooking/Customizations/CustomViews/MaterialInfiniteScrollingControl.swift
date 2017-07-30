@@ -127,8 +127,8 @@ class MaterialInfiniteScrollingControl: UIControl {
         self.isHidden = false
         self.loadingView!.startAnimating()
         
-        // Call trigger method
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        // Call trigger method, should delay a litle bit for better UX
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.sendActions(for: UIControlEvents.valueChanged)
         }
     }

@@ -39,47 +39,49 @@ class MovieModel: BaseModel {
     // MARK:
     // MARK: Initialization methods
     
-    override init(fromDict dict: NSDictionary) {
+    override init(fromDict dict: NSDictionary?) {
         super.init(fromDict: dict)
         
-        self.movieId = dict.intValueForKey("id")
-        
-        self.voteCount = dict.intValueForKey("vote_count")
-        self.voteAverage = dict.doubleValue("vote_average")
-        self.isVideo = dict.boolValueForKey("video")
-        self.popularity = dict.doubleValue("popularity")
-        self.isAdult = dict.boolValueForKey("adult")
-        self.durationInMinutes = dict.intValueForKey("runtime")
-        
-        self.title = dict.stringValueForKey("title")
-        self.originalTitle = dict.stringValueForKey("original_title")
-        self.overview = dict.stringValueForKey("overview")
-        self.homePageURL = dict.stringValueForKey("homepage")
-        
-        self.posterPath = dict.stringValueForKey("poster_path")
-        self.backdropPath = dict.stringValueForKey("backdrop_path")
-        
-        self.originalLanguage = dict.stringValueForKey("original_language")
-        
-        // For spoken languages
-        if let spokenLangDicts = dict.arrayForKey("spoken_languages") as? [NSDictionary] {
-            for langDict in spokenLangDicts {
-                let lang = SpokenLanguageModel(fromDict: langDict)
-                self.spokenLanguages.append(lang)
+        if dict != nil {
+            self.movieId = dict!.intValueForKey("id")
+            
+            self.voteCount = dict!.intValueForKey("vote_count")
+            self.voteAverage = dict!.doubleValue("vote_average")
+            self.isVideo = dict!.boolValueForKey("video")
+            self.popularity = dict!.doubleValue("popularity")
+            self.isAdult = dict!.boolValueForKey("adult")
+            self.durationInMinutes = dict!.intValueForKey("runtime")
+            
+            self.title = dict!.stringValueForKey("title")
+            self.originalTitle = dict!.stringValueForKey("original_title")
+            self.overview = dict!.stringValueForKey("overview")
+            self.homePageURL = dict!.stringValueForKey("homepage")
+            
+            self.posterPath = dict!.stringValueForKey("poster_path")
+            self.backdropPath = dict!.stringValueForKey("backdrop_path")
+            
+            self.originalLanguage = dict!.stringValueForKey("original_language")
+            
+            // For spoken languages
+            if let spokenLangDicts = dict!.arrayForKey("spoken_languages") as? [NSDictionary] {
+                for langDict in spokenLangDicts {
+                    let lang = SpokenLanguageModel(fromDict: langDict)
+                    self.spokenLanguages.append(lang)
+                }
             }
-        }
-        
-        // For genres
-        if let genreDicts = dict.arrayForKey("genres") as? [NSDictionary] {
-            for genreDict in genreDicts {
-                let genre = GenresModel(fromDict: genreDict)
-                self.genres.append(genre)
+            
+            // For genres
+            if let genreDicts = dict!.arrayForKey("genres") as? [NSDictionary] {
+                for genreDict in genreDicts {
+                    let genre = GenresModel(fromDict: genreDict)
+                    self.genres.append(genre)
+                }
             }
-        }
-        
-        // For release date
-        if let releaseDateString = dict.stringValueForKey("release_date") {
-            self.releaseDate = Date.fromDateString(dateString: releaseDateString, format: kMovieReleaseDateStringFormat)
+            
+            // For release date
+            if let releaseDateString = dict!.stringValueForKey("release_date") {
+                self.releaseDate = Date.fromDateString(dateString: releaseDateString, format: kMovieReleaseDateStringFormat)
+            }
         }
     }
     

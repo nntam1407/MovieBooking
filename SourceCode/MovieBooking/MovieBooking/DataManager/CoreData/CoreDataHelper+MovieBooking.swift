@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-let kCoreDataEntityStore = "Store"
+let kCoreDataEntityMovie = "Movie"
+let kCoreDataEntityFavoriteMovie = "FavoriteMovie"
 
 extension CoreDataHelper {
     
@@ -20,121 +21,87 @@ extension CoreDataHelper {
     }()
     
     // MARK:
-    // MARK: Method for Store entity
-    // MARK: Methods for category
+    // MARK: Method for Movie entity
     
-//    func createNewStore() -> Store {
-//        let entity = NSEntityDescription.entity(forEntityName: kCoreDataEntityStore, in: self.managedObjectContext!)
-//        
-//        return Store(entity: entity!, insertInto: self.managedObjectContext!)
-//    }
-//    
-//    func getStore(_ storeId: String) -> Store? {
-//        if (storeId.characters.count == 0) {
-//            return nil
-//        }
-//        
-//        // Create fetch request
-//        let fetchRequest = NSFetchRequest<Store>(entityName: kCoreDataEntityStore)
-//        fetchRequest.predicate = NSPredicate(format: "storeId == %@", argumentArray: [storeId])
-//        fetchRequest.fetchLimit = 1;
-//        
-//        // Start fetch
-//        let resultArray: [Store]
-//        
-//        do {
-//            resultArray = try self.managedObjectContext!.fetch(fetchRequest)
-//        } catch let e as NSError {
-//            // Write error to log
-//            NSLog(e.debugDescription)
-//            
-//            resultArray = [Store]()
-//        }
-//        
-//        return resultArray.last
-//    }
-//    
-//    func getAllStores() -> [Store] {
-//        var stores = [Store]()
-//        
-//        // We will fetch list categories from core data
-//        let fetchRequest = NSFetchRequest<Store>(entityName: kCoreDataEntityStore)
-//        var fetchResult: [Store]
-//        
-//        do {
-//            fetchResult = try self.managedObjectContext!.fetch(fetchRequest)
-//        } catch let e as NSError {
-//            // Write error to log
-//            NSLog(e.debugDescription)
-//            
-//            fetchResult = [Store]()
-//        }
-//        
-//        // We will collect list user from list fetch result
-//        for item in fetchResult {
-//            stores.append(item)
-//        }
-//        
-//        return stores
-//    }
-//    
-//    func getAllStore(_ userId: String?) -> [Store] {
-//        if userId == nil || (userId != nil && userId!.characters.count == 0) {
-//            return [Store]()
-//        }
-//        
-//        // Create fetch request
-//        let fetchRequest = NSFetchRequest<Store>(entityName: kCoreDataEntityStore)
-//        fetchRequest.predicate = NSPredicate(format: "userId == %@", argumentArray: [userId!])
-//        
-//        // Start fetch
-//        let resultArray: [Store]
-//        
-//        do {
-//            resultArray = try self.managedObjectContext!.fetch(fetchRequest)
-//        } catch let e as NSError {
-//            // Write error to log
-//            NSLog(e.debugDescription)
-//            
-//            resultArray = [Store]()
-//        }
-//        
-//        return resultArray
-//    }
-//    
-//    func deleteAllStore() {
-//        self.clearAllData([kCoreDataEntityStore])
-//    }
-//    
-//    func deleteAllStore(_ userId: String?, saveContext: Bool) {
-//        if userId == nil || (userId != nil && userId!.characters.count == 0) {
-//            return
-//        }
-//        
-//        // Create fetch request
-//        let fetchRequest = NSFetchRequest<Store>(entityName: kCoreDataEntityStore)
-//        fetchRequest.predicate = NSPredicate(format: "userId == %@", argumentArray: [userId!])
-//        fetchRequest.includesPropertyValues = false
-//        
-//        // Start fetch
-//        let resultArray: [Store]
-//        
-//        do {
-//            resultArray = try self.managedObjectContext!.fetch(fetchRequest)
-//        } catch let e as NSError {
-//            // Write error to log
-//            NSLog(e.debugDescription)
-//            
-//            resultArray = [Store]()
-//        }
-//        
-//        // Delete all in result array
-//        for object in resultArray {
-//            self.managedObjectContext!.delete(object)
-//        }
-//        
-//        if saveContext {
-//            self.saveContext()
-//        }
-//    }
+    func createNewMovie() -> Movie {
+        let entity = NSEntityDescription.entity(forEntityName: kCoreDataEntityMovie, in: self.managedObjectContext!)
+        
+        return Movie(entity: entity!, insertInto: self.managedObjectContext!)
+    }
+    
+    func getMovie(_ movieId: Int) -> Movie? {
+        if (movieId <= 0) {
+            return nil
+        }
+        
+        // Create fetch request
+        let fetchRequest = NSFetchRequest<Movie>(entityName: kCoreDataEntityMovie)
+        fetchRequest.predicate = NSPredicate(format: "movieId == %d", argumentArray: [movieId])
+        fetchRequest.fetchLimit = 1;
+        
+        // Start fetch
+        var resultArray: [Movie]?
+        
+        do {
+            resultArray = try self.managedObjectContext!.fetch(fetchRequest)
+        } catch let e as NSError {
+            // Write error to log
+            NSLog(e.debugDescription)
+        }
+        
+        return resultArray?.last
+    }
+    
+    // MARK:
+    // MARK: Methods for FavoriteMovie
+    
+    func createFavoriteMovie() -> FavoriteMovie {
+        let entity = NSEntityDescription.entity(forEntityName: kCoreDataEntityFavoriteMovie, in: self.managedObjectContext!)
+        
+        return FavoriteMovie(entity: entity!, insertInto: self.managedObjectContext!)
+    }
+    
+    func getFavoriteMovie(_ movieId: Int) -> FavoriteMovie? {
+        if (movieId <= 0) {
+            return nil
+        }
+        
+        // Create fetch request
+        let fetchRequest = NSFetchRequest<FavoriteMovie>(entityName: kCoreDataEntityFavoriteMovie)
+        fetchRequest.predicate = NSPredicate(format: "movie.movieId == %d", argumentArray: [movieId])
+        fetchRequest.fetchLimit = 1;
+        
+        // Start fetch
+        var resultArray: [FavoriteMovie]?
+        
+        do {
+            resultArray = try self.managedObjectContext!.fetch(fetchRequest)
+        } catch let e as NSError {
+            // Write error to log
+            NSLog(e.debugDescription)
+        }
+        
+        return resultArray?.last
+    }
+    
+    func getFavoriteMovies(fromTime: Date, limit: Int) -> [FavoriteMovie] {
+        var result = [FavoriteMovie]()
+        
+        let fetchRequest = NSFetchRequest<FavoriteMovie>(entityName: kCoreDataEntityFavoriteMovie)
+        fetchRequest.predicate = NSPredicate(format: "createdDate < %@", fromTime as NSDate)
+        
+        // Sort descrptor
+        let sortDescriptor = NSSortDescriptor(key: "createdDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.fetchLimit = limit
+        
+        // Start fetch data
+        do {
+            try result.append(contentsOf: self.managedObjectContext!.fetch(fetchRequest))
+        } catch {
+            DLog(error.localizedDescription)
+        }
+        
+        return result
+    }
 }

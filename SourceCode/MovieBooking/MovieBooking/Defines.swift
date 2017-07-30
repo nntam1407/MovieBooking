@@ -22,12 +22,6 @@ let kAppName = "MovieBooking"
 let kAppStoreURL = "https://itunes.apple.com/us/app/cloud-music-player-offline-playlist-and-mp3-song/id1155922368?ls=1&mt=Z"
 let kAppSupportEmail = "nntam1407@gmail.com"
 
-// MARK: Define for core data
-
-let kCoreDataSQLFileName = "moviebooking.sqlite"
-let kCoreDataModelFileName = "moviebooking"
-let kCoreDataModelFileExtension = "momd"
-
 // MARK: Define for all global notifications keys
 let kNotificationUpdateLocalizedText = "kNotificationUpdateLocalizedText"
 

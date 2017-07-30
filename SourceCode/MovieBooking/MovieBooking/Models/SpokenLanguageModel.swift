@@ -13,10 +13,12 @@ class SpokenLanguageModel: BaseModel {
     var languageCode: String?
     var name: String?
     
-    override init(fromDict dict: NSDictionary) {
+    override init(fromDict dict: NSDictionary?) {
         super.init(fromDict: dict)
         
-        self.languageCode = dict.stringValueForKey("iso_639_1")
-        self.name = dict.stringValueForKey("name")
+        if dict != nil {
+            self.languageCode = dict!.stringValueForKey("iso_639_1")
+            self.name = dict!.stringValueForKey("name")
+        }
     }
 }

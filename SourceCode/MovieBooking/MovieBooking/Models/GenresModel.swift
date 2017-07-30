@@ -13,10 +13,12 @@ class GenresModel: BaseModel {
     var genresId = 0
     var name: String?
     
-    override init(fromDict dict: NSDictionary) {
+    override init(fromDict dict: NSDictionary?) {
         super.init(fromDict: dict)
         
-        self.genresId = dict.intValueForKey("id")
-        self.name = dict.stringValueForKey("name")
+        if dict != nil {
+            self.genresId = dict!.intValueForKey("id")
+            self.name = dict!.stringValueForKey("name")
+        }
     }
 }
