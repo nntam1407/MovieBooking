@@ -141,6 +141,17 @@ class MovieDetailViewController: BaseViewController, UITableViewDelegate, UITabl
             self.displayInformation.append((NSLocalizedString("Overview", comment: ""), "-"))
         }
         
+        // Rating
+        var ratingContent = String(format: "%.1f / 10 - ", self.movieData!.voteAverage)
+        
+        if self.movieData!.voteAverage < 7.0 {
+            ratingContent += NSLocalizedString("ROTTEN", comment: "")
+        } else {
+            ratingContent += NSLocalizedString("AWESOME", comment: "")
+        }
+        
+        self.displayInformation.append((NSLocalizedString("Rating", comment: ""), ratingContent))
+        
         // Genres
         var genresDisplayString: String?
         
